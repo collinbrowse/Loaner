@@ -1,0 +1,17 @@
+use cs332;
+
+drop table if exists cars;
+
+create table cars (
+   car_id INT AUTO_INCREMENT PRIMARY KEY,
+   model VARCHAR(20),
+   make VARCHAR(20),
+   year YEAR,
+   seats INT,
+   mileage INT,
+   rating FLOAT(2,1),
+   description VARCHAR(20)
+);
+
+insert into cars(model, make, year, seats, mileage, rating, description) values("Golf GTI", "Volkswagon", 2011, 5, 28, 4.5, "Little thing whips" );
+insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2002, 5, 26, 3, "Great snow control" );
