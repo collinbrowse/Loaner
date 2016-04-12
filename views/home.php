@@ -1,63 +1,357 @@
     <div class="container">
-         
-        <table class="table table-bordered table-striped">
-          <thead class="bg-info">
+      <h1>Car Rentals Made Easy</h1>
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
             <tr>
-              <th class="col-xs-3">
-                <form action="sort.php" method="post">
-                  <button type="submit" name="orderBY" value="student_id">Car</button>
-                </form>
-              </th>
-              <th class="col-xs-3">
-                <form action="sort.php" method="post">
-                  <button type="submit" name="orderBY" value="first">Gas Mileage</button>
-                </form>
-              </th>
-              <th class="col-xs-3">
-                <form action="sort.php" method="post">
-                  <button type="submit" name="orderBY" value="last">Year</button>
-                </form>
-              </th>
-              <th class="col-xs-3">
-                <form action="sort.php" method="post">
-                  <button type="submit" name="orderBY" value="gender">Owner</button>
-                </form>
-              </th>
+              <th>Car</th>
+              <th>Rating</th>
+              <th>Gas Mileage</th>
+              <th>Capacity</th>
             </tr>
           </thead>
-                    
-          <tbody> 
-<!--
-          <div class="row">
-<?php foreach ($query as $row):?>
-        
+          <tbody>
             <tr>
-              <td><?php echo htmlentities($row['car'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['mileage'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['year'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['owner'], ENT_QUOTES, 'utf-8'); ?></td> 
-              <td class="deleteButton">
-                <form action="delete.php" method="post">
-                  <input type="submit" value="Drop" name="DeleteUser" class="deleteButton">            
-                  <input type="hidden" name="student_id" value="<?php echo $row['student_id'];?>">
-                </form>
-              </td>
+              <td>Tiger Nixon</td>
+              <td>System Architect</td>
+              <td>Edinburgh</td>
+              <td>$320,800</td>
             </tr>
-              
-<?php endforeach; ?>
-          </div>
-          -->
-        </tbody>
-      </table>
-        <!-- Let the user update the roster-->
-      <form action="insert.php" method="post" class="newStudent"> 
-         <fieldset>
-           <legend>Enter another Car:</legend>
-           Car <input type="text" name="first" placeholder="Car"> 
-           Gas Mileage <input type="text" name="last" placeholder="Gas Mileage">
-           Year <input type="text" name="gender" placeholder="Year">
-           Owner <input type="text" name="grad" placeholder="Owner">
-           <input type="submit" value="Add" name="InsertUser" class="submitButton">
-         </fieldset>
-       </form>
-    </div>
+            <tr>
+              <td>Garrett Winters</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>$170,750</td>
+            </tr>
+            <tr>
+              <td>Ashton Cox</td>
+              <td>Junior Technical Author</td>
+              <td>San Francisco</td>
+              <td>$86,000</td>
+            </tr>
+            <tr>
+              <td>Cedric Kelly</td>
+              <td>Senior Javascript Developer</td>
+              <td>Edinburgh</td>
+              <td>$433,060</td>
+            </tr>
+            <tr>
+              <td>Airi Satou</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>$162,700</td>
+            </tr>
+            <tr>
+              <td>Brielle Williamson</td>
+              <td>Integration Specialist</td>
+              <td>New York</td>
+              <td>$372,000</td>
+            </tr>
+            <tr>
+              <td>Herrod Chandler</td>
+              <td>Sales Assistant</td>
+              <td>San Francisco</td>
+              <td>$137,500</td>
+            </tr>
+            <tr>
+              <td>Rhona Davidson</td>
+              <td>Integration Specialist</td>
+              <td>Tokyo</td>
+              <td>$327,900</td>
+            </tr>
+            <tr>
+              <td>Colleen Hurst</td>
+              <td>Javascript Developer</td>
+              <td>San Francisco</td>
+              <td>$205,500</td>
+            </tr>
+            <tr>
+              <td>Sonya Frost</td>
+              <td>Software Engineer</td>
+              <td>Edinburgh</td>
+              <td>$103,600</td>
+            </tr>
+            <tr>
+              <td>Jena Gaines</td>
+              <td>Office Manager</td>
+              <td>London</td>
+              <td>$90,560</td>
+            </tr>
+            <tr>
+              <td>Quinn Flynn</td>
+              <td>Support Lead</td>
+              <td>Edinburgh</td>
+              <td>$342,000</td>
+            </tr>
+            <tr>
+              <td>Charde Marshall</td>
+              <td>Regional Director</td>
+              <td>San Francisco</td>
+              <td>$470,600</td>
+            </tr>
+            <tr>
+              <td>Haley Kennedy</td>
+              <td>Senior Marketing Designer</td>
+              <td>London</td>
+              <td>$313,500</td>
+            </tr>
+            <tr>
+              <td>Tatyana Fitzpatrick</td>
+              <td>Regional Director</td>
+              <td>London</td>
+              <td>$385,750</td>
+            </tr>
+            <tr>
+              <td>Michael Silva</td>
+              <td>Marketing Designer</td>
+              <td>London</td>
+              <td>$198,500</td>
+            </tr>
+            <tr>
+              <td>Paul Byrd</td>
+              <td>Chief Financial Officer (CFO)</td>
+              <td>New York</td>
+              <td>$725,000</td>
+            </tr>
+            <tr>
+              <td>Gloria Little</td>
+              <td>Systems Administrator</td>
+              <td>New York</td>
+              <td>$237,500</td>
+            </tr>
+            <tr>
+              <td>Bradley Greer</td>
+              <td>Software Engineer</td>
+              <td>London</td>
+              <td>$132,000</td>
+            </tr>
+            <tr>
+              <td>Dai Rios</td>
+              <td>Personnel Lead</td>
+              <td>Edinburgh</td>
+              <td>$217,500</td>
+            </tr>
+            <tr>
+              <td>Jenette Caldwell</td>
+              <td>Development Lead</td>
+              <td>New York</td>
+              <td>$345,000</td>
+            </tr>
+            <tr>
+              <td>Yuri Berry</td>
+              <td>Chief Marketing Officer (CMO)</td>
+              <td>New York</td>
+              <td>$675,000</td>
+            </tr>
+            <tr>
+              <td>Caesar Vance</td>
+              <td>Pre-Sales Support</td>
+              <td>New York</td>
+              <td>$106,450</td>
+            </tr>
+            <tr>
+              <td>Doris Wilder</td>
+              <td>Sales Assistant</td>
+              <td>Sidney</td>
+              <td>$85,600</td>
+            </tr>
+            <tr>
+              <td>Angelica Ramos</td>
+              <td>Chief Executive Officer (CEO)</td>
+              <td>London</td>
+              <td>$1,200,000</td>
+            </tr>
+            <tr>
+              <td>Gavin Joyce</td>
+              <td>Developer</td>
+              <td>Edinburgh</td>
+              <td>$92,575</td>
+            </tr>
+            <tr>
+              <td>Jennifer Chang</td>
+              <td>Regional Director</td>
+              <td>Singapore</td>
+              <td>$357,650</td>
+            </tr>
+            <tr>
+              <td>Brenden Wagner</td>
+              <td>Software Engineer</td>
+              <td>San Francisco</td>
+              <td>$206,850</td>
+            </tr>
+            <tr>
+              <td>Fiona Green</td>
+              <td>Chief Operating Officer (COO)</td>
+              <td>San Francisco</td>
+              <td>$850,000</td>
+            </tr>
+            <tr>
+              <td>Shou Itou</td>
+              <td>Regional Marketing</td>
+              <td>Tokyo</td>
+              <td>$163,000</td>
+            </tr>
+            <tr>
+              <td>Michelle House</td>
+              <td>Integration Specialist</td>
+              <td>Sidney</td>
+              <td>$95,400</td>
+            </tr>
+            <tr>
+              <td>Suki Burks</td>
+              <td>Developer</td>
+              <td>London</td>
+              <td>$114,500</td>
+            </tr>
+            <tr>
+              <td>Prescott Bartlett</td>
+              <td>Technical Author</td>
+              <td>London</td>
+              <td>$145,000</td>
+            </tr>
+            <tr>
+              <td>Gavin Cortez</td>
+              <td>Team Leader</td>
+              <td>San Francisco</td>
+              <td>$235,500</td>
+            </tr>
+            <tr>
+              <td>Martena Mccray</td>
+              <td>Post-Sales support</td>
+              <td>Edinburgh</td>
+              <td>$324,050</td>
+            </tr>
+            <tr>
+              <td>Unity Butler</td>
+              <td>Marketing Designer</td>
+              <td>San Francisco</td>
+              <td>$85,675</td>
+            </tr>
+            <tr>
+              <td>Howard Hatfield</td>
+              <td>Office Manager</td>
+              <td>San Francisco</td>
+              <td>$164,500</td>
+            </tr>
+            <tr>
+              <td>Hope Fuentes</td>
+              <td>Secretary</td>
+              <td>San Francisco</td>
+              <td>$109,850</td>
+            </tr>
+            <tr>
+              <td>Vivian Harrell</td>
+              <td>Financial Controller</td>
+              <td>San Francisco</td>
+              <td>$452,500</td>
+            </tr>
+            <tr>
+              <td>Timothy Mooney</td>
+              <td>Office Manager</td>
+              <td>London</td>
+              <td>$136,200</td>
+            </tr>
+            <tr>
+              <td>Jackson Bradshaw</td>
+              <td>Director</td>
+              <td>New York</td>
+              <td>$645,750</td>
+            </tr>
+            <tr>
+              <td>Olivia Liang</td>
+              <td>Support Engineer</td>
+              <td>Singapore</td>
+              <td>$234,500</td>
+            </tr>
+            <tr>
+              <td>Bruno Nash</td>
+              <td>Software Engineer</td>
+              <td>London</td>
+              <td>$163,500</td>
+            </tr>
+            <tr>
+              <td>Sakura Yamamoto</td>
+              <td>Support Engineer</td>
+              <td>Tokyo</td>
+              <td>$139,575</td>
+            </tr>
+            <tr>
+              <td>Thor Walton</td>
+              <td>Developer</td>
+              <td>New York</td>
+              <td>$98,540</td>
+            </tr>
+            <tr>
+              <td>Finn Camacho</td>
+              <td>Support Engineer</td>
+              <td>San Francisco</td>
+              <td>$87,500</td>
+            </tr>
+            <tr>
+              <td>Serge Baldwin</td>
+              <td>Data Coordinator</td>
+              <td>Singapore</td>
+              <td>$138,575</td>
+            </tr>
+            <tr>
+              <td>Zenaida Frank</td>
+              <td>Software Engineer</td>
+              <td>New York</td>
+              <td>$125,250</td>
+            </tr>
+            <tr>
+              <td>Zorita Serrano</td>
+              <td>Software Engineer</td>
+              <td>San Francisco</td>
+              <td>$115,000</td>
+            </tr>
+            <tr>
+              <td>Jennifer Acosta</td>
+              <td>Junior Javascript Developer</td>
+              <td>Edinburgh</td>
+              <td>$75,650</td>
+            </tr>
+            <tr>
+              <td>Cara Stevens</td>
+              <td>Sales Assistant</td>
+              <td>New York</td>
+              <td>$145,600</td>
+            </tr>
+            <tr>
+              <td>Hermione Butler</td>
+              <td>Regional Director</td>
+              <td>London</td>
+              <td>$356,250</td>
+            </tr>
+            <tr>
+              <td>Lael Greer</td>
+              <td>Systems Administrator</td>
+              <td>London</td>
+              <td>$103,500</td>
+            </tr>
+            <tr>
+              <td>Jonas Alexander</td>
+              <td>Developer</td>
+              <td>San Francisco</td>
+              <td>$86,500</td>
+            </tr>
+            <tr>
+              <td>Shad Decker</td>
+              <td>Regional Director</td>
+              <td>Edinburgh</td>
+              <td>$183,000</td>
+            </tr>
+            <tr>
+              <td>Michael Bruce</td>
+              <td>Javascript Developer</td>
+              <td>Singapore</td>
+              <td>$183,000</td>
+            </tr>
+            <tr>
+              <td>Donna Snider</td>
+              <td>Customer Support</td>
+              <td>New York</td>
+              <td>$112,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
