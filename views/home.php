@@ -9,6 +9,30 @@
               <th>Capacity</th>
             </tr>
           </thead>
+           
+<!--
+          <tbody> 
+<?php foreach ($query as $row):?>
+        
+            <tr>
+              <td><?php echo htmlentities($row['student_id'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td><?php echo htmlentities($row['first'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td><?php echo htmlentities($row['last'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td><?php echo htmlentities($row['gender'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td><?php echo htmlentities($row['grad'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td class="deleteButton">
+                <form action="delete.php" method="post">
+                  <input type="submit" value="Drop" name="DeleteUser" class="deleteButton">            
+                  <input type="hidden" name="student_id" value="<?php echo $row['student_id'];?>">
+                </form>
+              </td>
+            </tr>
+              
+<?php endforeach; ?>      
+        </tbody>
+-->      
+          
+          
           <tbody>
             <tr>
               <td>Tiger Nixon</td>
