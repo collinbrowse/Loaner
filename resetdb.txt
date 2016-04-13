@@ -25,3 +25,26 @@ insert into cars(model, make, year, seats, mileage, rating, description) values(
 insert into cars(model, make, year, seats, mileage, rating, description) values("Civic", "Honda", 2014, 5, 26, 3, "Stylish" );
 insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2011, 5, 28, 4.5, "Little thing whips" );
 insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2015, 5, 33, 3, "MPG overhaul" );
+
+drop table if exists available_cars;
+
+create table available_cars (
+   availability_id INT AUTO_INCREMENT PRIMARY KEY,
+   owner_id INT FOREIGN KEY,
+   car_id INT FOREIGN KEY,
+   duration VARCHAR(20),
+   location VARCHAR(20)
+);
+
+insert into cars(owner_id, car_id, duration, location) values(1,1,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,2,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,3,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,4,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,5,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,6,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,7,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,8,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,9,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,10,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,11,"Contact Owner","Canton, NY");
+insert into cars(owner_id, car_id, duration, location) values(1,12,"Contact Owner","Canton, NY");
