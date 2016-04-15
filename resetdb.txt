@@ -26,6 +26,35 @@ insert into cars(model, make, year, seats, mileage, rating, description) values(
 insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2011, 5, 28, 4.5, "Little thing whips" );
 insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2015, 5, 33, 3, "MPG overhaul" );
 
+drop table if exists owner;
+
+create table owner (
+   owner_id INT AUTO_INCREMENT PRIMARY KEY,
+   name VARCHAR(20),
+   rating FLOAT(2,1),
+   age INT
+   
+);
+
+insert into (name, rating, age) values("Officer Huckle", 5, 35);
+insert into cars(name, rating, age) values("Petty Officer Ryan", 5, 22);
+insert into cars(name, rating, age) values("Kathy Shrader", 3, 31);
+
+drop table if exists renter;
+
+create table renter (
+   renter_id INT AUTO_INCREMENT PRIMARY KEY,
+   name VARCHAR(20),
+   rating FLOAT(2,1),
+   age INT
+   
+);
+
+insert into (name, rating, age) values("Ron Johnson", 5, 25);
+insert into cars(name, rating, age) values("Ryan Graller", 5, 22);
+insert into cars(name, rating, age) values("Shredder", 0.5, 40);
+
+
 drop table if exists available_cars;
 
 create table available_cars (
@@ -48,3 +77,4 @@ insert into cars(owner_id, car_id, duration, location) values(1,9,"Contact Owner
 insert into cars(owner_id, car_id, duration, location) values(1,10,"Contact Owner","Canton, NY");
 insert into cars(owner_id, car_id, duration, location) values(1,11,"Contact Owner","Canton, NY");
 insert into cars(owner_id, car_id, duration, location) values(1,12,"Contact Owner","Canton, NY");
+
