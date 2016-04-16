@@ -26,14 +26,25 @@ insert into cars(model, make, year, seats, mileage, rating, description) values(
 insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2011, 5, 28, 4.5, "Little thing whips" );
 insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2015, 5, 33, 3, "MPG overhaul" );
 
+
+drop table if exists users;
+
+create table users (
+	username VARCHAR(16) PRIMARY KEY,
+    type VARCHAR(6) NOT NULL,
+	password VARCHAR(255) NOT NULL
+);
+
+
+
 drop table if exists owner;
 
 create table owner (
    owner_id INT AUTO_INCREMENT PRIMARY KEY,
    name VARCHAR(20),
    rating FLOAT(2,1),
-   age INT
-   
+   age INT,
+   username VARCHAR(16) FOREIGN KEY
 );
 
 insert into (name, rating, age) values("Officer Huckle", 5, 35);
@@ -46,14 +57,13 @@ create table renter (
    renter_id INT AUTO_INCREMENT PRIMARY KEY,
    name VARCHAR(20),
    rating FLOAT(2,1),
-   age INT
-   
+   age INT,
+   username VARCHAR(16) FOREIGN KEY
 );
 
 insert into (name, rating, age) values("Ron Johnson", 5, 25);
 insert into cars(name, rating, age) values("Ryan Graller", 5, 22);
 insert into cars(name, rating, age) values("Shredder", 0.5, 40);
-
 
 drop table if exists available_cars;
 
