@@ -12,16 +12,27 @@ if (!isset($cs332db)) {
 }
 else {
   // Retrieve values from the POST array
-  $brand = trim($_POST['brand']);
   $model = trim($_POST['model']);
+  $make = trim($_POST['make']);
   $year = trim($_POST['year']);
+  $seats = trim($_POST['seats']);
   $mileage = trim($_POST['mileage']);
-  $rating = trim($_POST['rating ']);
+  $rating = null;
+  $description = trim($_POST['description']);
+  
+  echo $model;
+  echo $make;
+  echo $year;
+  echo $seats;
+  echo $mileage;
+  echo $rating;
+  echo $description;
   
   // Create a new model to insert a new car
   require_once('models/car.php');
-  $model = new Roster($cs332db);
-  $model->insert($brand, $model, $year, $mileage, $rating);
+  $model = new Car($cs332db);
+  $model->insert($model, $make, $year, $seats, $mileage, $rating, $description);
 }
-
+// Return home
+//header('Location: ./');
 exit();
