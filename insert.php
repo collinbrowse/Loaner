@@ -30,8 +30,8 @@ else {
   
   // Create a new model to insert a new car
   require_once('models/car.php');
-  $model = new Car($cs332db);
-  $model->insert($model, $make, $year, $seats, $mileage, $rating, $description);
+  $add = new Car($cs332db);
+  $add->insert($model, $make, $year, $seats, $mileage, $rating, $description);
 }
 // Return home
 //header('Location: ./');
