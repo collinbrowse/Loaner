@@ -20,19 +20,11 @@ else {
   $rating = null;
   $description = trim($_POST['description']);
   
-  echo $model;
-  echo $make;
-  echo $year;
-  echo $seats;
-  echo $mileage;
-  echo $rating;
-  echo $description;
-  
   // Create a new model to insert a new car
   require_once('models/car.php');
   $add = new Car($cs332db);
   $add->insert($model, $make, $year, $seats, $mileage, $rating, $description);
 }
 // Return home
-//header('Location: ./');
+header('Location: ./');
 exit();

@@ -1,78 +1,77 @@
-    <div class="container" >
-      <div class="jumbotron"  style="background-image: url('views/car_background.jpg');" class="img-responsive">
-          <h1>Car Rentals Made Easy</h1>
-      </div>
-        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th>Make</th>
-              <th>Year</th>
-              <th>Capacity</th>
-              <th>Gas Mileage</th>
-              <th>Rating</th>
-              <th>Description</th>
-            </tr>
-          </thead>
+<!-- DatePicker ability taken from the tutorial at formden.com
+     link: https://formden.com/blog/date-picker-->
 
-          <tbody> 
-<?php foreach ($query as $row):?>
-            <tr>
-              <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['make'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['year'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['seats'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['mileage'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['rating'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['description'], ENT_QUOTES, 'utf-8'); ?></td>
-            </tr>
-<?php endforeach; ?>
-          </tbody>   
-    </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />  <!-- for the datepicker -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" /> <!-- for the datepicker -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/> <!-- for the datepicker -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script src="views/datePicker.js"></script>
 
-    <div class="container">
-      <form action="insert.php" method="post" class="form-horizontal" id="form_members" role="form">
-        <legend>Add a Car</legend>
+
+<div class="jumbotron"  style="background-image: url('views/car_background.jpg');" class="img-responsive">
+  <h1>Car Rentals Made Easy</h1>
+</div>
+  <div class="bootstrap-iso">
+   <div class="container-fluid">
+    <div class="row">
+     
+      <form method="post">
+        <div class="col-md-4">
           <div class="form-group">
-            <label for="model" class="col-sm-2">Model</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="model" id="model" placeholder="Car Model">
+            <label class="control-label" for="location">Location</label>
+            <input type="email" class="form-control" id="location" placeholder="Where ?">
+          </div>
+        </div>
+       
+        <div class="col-md-2">
+          <div class="form-group "> 
+            <label class="control-label " for="checkIn">Check In</label>  
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input class="form-control" id="checkIn" name="date" placeholder="MM/DD/YYYY" type="text"/>
               </div>
-            <label for="make" class="col-sm-2">Make</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="make" id="make" placeholder="Car Make">
+          </div>
+        </div>
+          
+        <div class="col-md-2">
+          <div class="form-group "> 
+            <label class="control-label " for="date">Check Out</label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input class="form-control" id="checkOut" name="date" placeholder="MM/DD/YYYY" type="text"/>
               </div>
-            <label for="year" class="col-sm-2">Year</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="year" id="year" placeholder="Car Year">
-              </div>
-            <label for="capacity" class="col-sm-2">Capacity</label>
-              <fieldset>
-              <div class="col-sm-4">
-                <select class="form-control" name="seats" id="seats">
-                  <option value="">Select a number of seats</option>
-                  <option>2</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                </select>
-              </div>
-            </fieldset>
-            <label for="mpg" class="col-sm-2">MPG</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="mileage" id="mileage" placeholder="Miles Per Gallon">
-              </div>
-            <label for="description" class="col-sm-2">Description</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="description" id="description" placeholder="What condition is the car in?">
-              </div>
-              <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-warning" name="submit" id="submit">Submit</button>
+          </div>
+        </div>
+    
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="control-label" for="guest">Seats</label>
+            <select id="seats" name="seats" class="form-control">
+              <option value="2">2 Seats</option>
+              <option value="4">4 Seats</option>
+              <option value="5">5 Seats</option>
+              <option value="6">6 Seats</option>
+              <option value="7">7 Seats</option>
+              <option value="8">8 Seats</option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <label class="control-label " for="checkIn"></label> 
+          <div>
+           <button class="btn btn-primary " name="submit" type="submit">Submit</button>
           </div>
         </div>
       </form>
-      
+     </div>
     </div>
+   </div>
+  </div>
+  
