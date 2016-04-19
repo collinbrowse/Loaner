@@ -9,10 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="views/datePicker.js"></script>
 
-
-<div class="jumbotron"  style="background-image: url('views/car_background.jpg');" class="img-responsive">
-  <h1>Car Rentals Made Easy</h1>
-</div>
+<div class="jumbotron" class="img-responsive">
   <div class="bootstrap-iso">
    <div class="container-fluid">
     <div class="row">
@@ -27,7 +24,7 @@
        
         <div class="col-md-2">
           <div class="form-group "> 
-            <label class="control-label " for="checkIn">Check In</label>  
+            <label class="control-label" for="checkIn">Check In</label>  
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
@@ -39,7 +36,7 @@
           
         <div class="col-md-2">
           <div class="form-group "> 
-            <label class="control-label " for="date">Check Out</label>
+            <label class="control-label" for="checkOut">Check Out</label>
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
@@ -51,7 +48,7 @@
     
         <div class="col-md-2">
           <div class="form-group">
-            <label class="control-label" for="guest">Seats</label>
+            <label class="control-label" for="seats">Seats</label>
             <select id="seats" name="seats" class="form-control">
               <option value="2">2 Seats</option>
               <option value="4">4 Seats</option>
@@ -64,14 +61,15 @@
         </div>
     
         <div class="form-group">
-          <label class="control-label " for="checkIn"></label> 
+          <label class="control-label " for="submit"></label> 
           <div>
            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
           </div>
         </div>
+        
       </form>
      </div>
     </div>
    </div>
   </div>
-  
+</div>

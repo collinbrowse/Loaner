@@ -1,0 +1,9 @@
+.jumbotron {
+    background-image: url('http://cdn.bmwblog.com/wp-content/uploads/2015/04/2014-BMW-i3-Front-3-4-Right-City-Cruising-750x465.jpg');
+    margin: auto;
+    padding: 15px;
+    width: 90%;
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

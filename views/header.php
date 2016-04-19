@@ -10,8 +10,10 @@
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
       <link rel="stylesheet" href="css/global.css">
+      <link rel="stylesheet" href="views/style.css">
   </head>
   <body>
+    
     <nav class="navbar navbar-default">
       <div class="container-fluid"> 
         <div class="row">
