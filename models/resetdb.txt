@@ -22,7 +22,7 @@ create table cars (
 
 create table users (
 	username VARCHAR(16) PRIMARY KEY,
-    type VARCHAR(6) NOT NULL,
+    	type VARCHAR(6) NOT NULL,
 	password VARCHAR(255) NOT NULL
 );
 

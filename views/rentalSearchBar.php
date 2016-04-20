@@ -5,7 +5,7 @@
    <div class="container-fluid">
     <div class="row">
      
-      <form method="post" action="availability.php">
+      <form method="post" action="../availability.php">
         <div class="col-sm-4">
           <div class="form-group">
             <label class="control-label" for="location">Location</label>
