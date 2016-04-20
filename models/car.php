@@ -8,8 +8,8 @@ class Car {
       $this->cs332db = $cs332db;   
     }
     
-    function retrieve() {
-      return $this->cs332db->query("select * from cars ORDER BY year;");
+    function retrieve($seats) {
+      return $this->cs332db->query("select * from cars where seats = '$seats' ORDER BY year;");
     }
 
     // Add a new row to the database
@@ -23,9 +23,6 @@ class Car {
       $insert->bindParam(':mileage', $mileage, PDO::PARAM_INT, 4);
       $insert->bindParam(':rating', $rating, PDO::PARAM_INT, 4);
       $insert->bindParam(':description', $description, PDO::PARAM_STR, 20);
-      
-    
-      //$this->cs332db->query("INSERT INTO cars(model,make,year,seats,mileage,rating,description) values('q', 'q', '0', '0', '0', '0', 'q');");
       
       // Perform the insert
       $insert->execute();

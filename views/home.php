@@ -14,7 +14,7 @@
    <div class="container-fluid">
     <div class="row">
      
-      <form method="post">
+      <form method="post" action="availability.php">
         <div class="col-md-4">
           <div class="form-group">
             <label class="control-label" for="location">Location</label>
@@ -24,7 +24,7 @@
        
         <div class="col-md-2">
           <div class="form-group "> 
-            <label class="control-label" for="checkIn">Check In</label>  
+            <label class="control-label" for="checkIn">Check Out</label>  
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
@@ -36,7 +36,7 @@
           
         <div class="col-md-2">
           <div class="form-group "> 
-            <label class="control-label" for="checkOut">Check Out</label>
+            <label class="control-label" for="checkOut">Check In</label>
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
