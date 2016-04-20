@@ -1,5 +1,9 @@
+<?php require_once('header.php'); ?>
 
-    <div class="container">
+  <div class="container">
+    <?php require('renterMenu.php'); ?>
+    
+    <div class="col-sm-10">
       <form action="insert.php" method="post" class="form-horizontal" id="form_members" role="form">
         <legend>Add a Car</legend>
           <div class="form-group">
@@ -17,18 +21,18 @@
               </div>
             <label for="capacity" class="col-sm-2">Capacity</label>
               <fieldset>
-              <div class="col-sm-4">
-                <select class="form-control" name="seats" id="seats">
-                  <option value="">Select a number of seats</option>
-                  <option>2</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                </select>
-              </div>
-            </fieldset>
+                <div class="col-sm-4">
+                  <select class="form-control" name="seats" id="seats">
+                    <option value="">Select a number of seats</option>
+                    <option>2</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                  </select>
+                </div>
+              </fieldset>
             <label for="mpg" class="col-sm-2">MPG</label>
               <div class="col-sm-4">
                 <input type="text" class="form-control" name="mileage" id="mileage" placeholder="Miles Per Gallon">
@@ -43,5 +47,7 @@
           </div>
         </div>
       </form>
-      
     </div>
+  </div>
+
+<?php require_once('footer.php'); ?>
