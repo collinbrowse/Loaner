@@ -1,7 +1,19 @@
             <div class="row">
                 <div class="col-sm-6">
-                    <h3>Register</h3>
+                    <h3>Signup</h3>
                     <form action="authenticate.php" method="post" class="well">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="firstName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" name="age" min="1" max="5" class="form-control">> 
+                        </div>
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="username" class="form-control">
