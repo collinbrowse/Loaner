@@ -1,7 +1,4 @@
-
-<?php require_once('rentalSearchBarFormatLinks.php'); ?>
-
-  <div class="bootstrap-iso">
+<div class="bootstrap-iso">
    <div class="container-fluid">
     <div class="row">
      
@@ -15,24 +12,24 @@
        
         <div class="col-sm-2">
           <div class="form-group "> 
-            <label class="control-label" for="checkIn">Check Out</label>  
+            <label class="control-label" for="checkIn">Start</label>  
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input class="form-control" id="checkIn" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                <input class="form-control" id="checkIn" name="date" placeholder="YYYY-MM-DD" type="text"/>
               </div>
           </div>
         </div>
           
         <div class="col-sm-2">
           <div class="form-group "> 
-            <label class="control-label" for="checkOut">Check In</label>
+            <label class="control-label" for="checkOut">Finish</label>
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input class="form-control" id="checkOut" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                <input class="form-control" id="checkOut" name="date1" placeholder="YYYY-MM-DD" type="text"/>
               </div>
           </div>
         </div>
