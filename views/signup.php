@@ -12,7 +12,7 @@
                         </div>
                         <div class="form-group">
                             <label>Age</label>
-                            <input type="number" name="age" min="1" max="5" class="form-control">> 
+                            <input type="number" name="age" min="18" max="65" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Username</label>
