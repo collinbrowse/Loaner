@@ -12,13 +12,14 @@
         <div class="modal-body">
           <form action="authenticate.php" method="post" class="well">
             <div class="form-group">
-              <label for="usrname"> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter username">
+              <label for="username"> Username</label>
+              <input type="text" class="form-control" name="username" placeholder="Enter username">
             </div>
             <div class="form-group">
-              <label for="psw"> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <label for="password"> Password</label>
+              <input type="password" class="form-control" name="password" placeholder="Enter password">
             </div>
+              <input type="hidden" name="task" value="login">
               <button type="submit" class="btn btn-success btn-block"> Login</button>
           </form>
         </div>
