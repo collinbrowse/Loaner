@@ -1,4 +1,4 @@
-<?php require_once('header.php'); ?>
+<?php require_once('headerLoggedIn.php'); ?>
 
   <div class="container">
     <?php require('renterMenu.php'); ?>
