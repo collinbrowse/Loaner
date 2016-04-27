@@ -3,7 +3,11 @@
 session_start();
 
 // Show the home page only if logged in
-require('views/header.php');
-//require(isset($_SESSION['user_id']) ? 'views/home.php' : 'views/login.php');
-require('views/signup.php');
-require('views/footer.php');
+if(!isset($_SESSION['user_id'])){
+require_once('views/header.php');
+require_once('views/signup.php');
+require_once('views/signup.php');
+require_once('views/footer.php');
+}else{
+require_once('views/renterProfile.php');
+}
