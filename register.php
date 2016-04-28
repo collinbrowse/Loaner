@@ -6,8 +6,9 @@ session_start();
 if(!isset($_SESSION['user_id'])){
 require_once('views/header.php');
 require_once('views/signup.php');
-require_once('views/signup.php');
+require_once('views/modal.php');
 require_once('views/footer.php');
 }else{
-require_once('views/renterProfile.php');
+header('Location: ./account.php');
+exit();
 }
