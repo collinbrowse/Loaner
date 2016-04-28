@@ -49,9 +49,8 @@ class User {
         $select->execute();
         
         $row = $select->fetch(PDO::FETCH_ASSOC);
-        $_POST['fun'] =( isset($row) && password_verify($this->password, $row['password']));
         if (isset($row) && password_verify($this->password, $row['password'])) {
-            return $row['username'];
+            return array($row['username'],$row['type']);
         } else {
             return NULL;
         }
