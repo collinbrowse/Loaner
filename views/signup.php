@@ -15,6 +15,15 @@
                             <input type="number" name="age" min="18" max="65" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label>Type of Account</label>
+                            <fieldset>
+                                <select  name="type" class="form-control">
+                                  <option value='renter'>Renter</option>
+                                  <option value='owner'>Owner</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="username" class="form-control">
                         </div>
