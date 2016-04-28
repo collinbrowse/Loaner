@@ -31,13 +31,14 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['task
         
         // Or attempt login
         elseif ($_POST['task'] == 'login') {
-            $user_id = $user->login();
+            $user_info = $user->login();
             
-            if (isset($user_id)) {
+            if (isset($user_info)) {
                 session_regenerate_id(true); // New session for login
-                $_SESSION['user_id'] = $user_id;
+                $_SESSION['user_id'] = $user_info[0];
+                $_SESSION['type'] = $user_info[1];
             } else {
-                $_SESSION['message'] ='Wrong username or password.';
+                $_SESSION['message'] = 'Wrong username or password.';
             }
         }
     }
