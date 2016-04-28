@@ -30,7 +30,6 @@
                     <option>7</option>
                     <option>8</option>
                   </select>
-                
               </fieldset>
           </div>
           <div class="form-group">
