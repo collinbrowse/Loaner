@@ -1,28 +1,27 @@
-<?php require_once('headerLoggedIn.php'); ?>
-
-  <div class="container">
     <?php require('renterMenu.php'); ?>
     
     <div class="col-sm-10">
-      <form action="insert.php" method="post" class="form-horizontal" id="form_members" role="form">
-        <legend>Add a Car</legend>
+      <form action="insert.php" method="post">
+        <h3>Add a Car</h3>
+        <div class="col-sm-6">
           <div class="form-group">
-            <label for="model" class="col-sm-2">Model</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="model" id="model" placeholder="Car Model">
-              </div>
-            <label for="make" class="col-sm-2">Make</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="make" id="make" placeholder="Car Make">
-              </div>
-            <label for="year" class="col-sm-2">Year</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="year" id="year" placeholder="Car Year">
-              </div>
-            <label for="capacity" class="col-sm-2">Capacity</label>
+              <label>Model</label>
+              <input type="text" name="model" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>Make</label>
+              <input type="text" name="make" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>Year</label>
+              <input type="text" name="year" class="form-control">
+          </div>           
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+              <label>Capacity</label>
               <fieldset>
-                <div class="col-sm-4">
-                  <select class="form-control" name="seats" id="seats">
+                  <select  name="seats" class="form-control">
                     <option value="">Select a number of seats</option>
                     <option>2</option>
                     <option>4</option>
@@ -31,23 +30,19 @@
                     <option>7</option>
                     <option>8</option>
                   </select>
-                </div>
+                
               </fieldset>
-            <label for="mpg" class="col-sm-2">MPG</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="mileage" id="mileage" placeholder="Miles Per Gallon">
-              </div>
-            <label for="description" class="col-sm-2">Description</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="description" id="description" placeholder="What condition is the car in?">
-              </div>
-              <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-warning" name="submit" id="submit">Submit</button>
           </div>
+          <div class="form-group">
+              <label>MPG</label>
+              <input type="number" name="mpg" min=0 class="form-control">
+          </div>
+          <div class="form-group">
+              <label>Description</label>
+              <input type="text" name="description" class="form-control">
+          </div>
+              <button type="submit" class="btn btn-warning" name="submit" >Submit</button>
+                        
         </div>
       </form>
     </div>
-  </div>
-
-<?php require_once('footer.php'); ?>
