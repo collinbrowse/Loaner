@@ -3,14 +3,14 @@
     <div class="row">
      
       <form method="post" action="../availability.php">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
             <label class="control-label" for="location">Location</label>
             <input type="email" class="form-control" id="location" placeholder="Where ?">
           </div>
         </div>
        
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <div class="form-group "> 
             <label class="control-label" for="checkIn">Start</label>  
               <div class="input-group">
@@ -22,7 +22,7 @@
           </div>
         </div>
           
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <div class="form-group "> 
             <label class="control-label" for="checkOut">Finish</label>
               <div class="input-group">
