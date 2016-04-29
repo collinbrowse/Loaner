@@ -23,21 +23,21 @@ class User {
     
     // Attempt to add this user and return whether it worked
     function registerAdditional($first, $last, $age) {
-        if($this->type == 'renter'){
-        $insert = $this->db->prepare('insert into renter(first,last,age,username) values(:first,:last,:age,:username)');
-        $insert->bindParam(':first', $first, PDO::PARAM_STR);
-        $insert->bindParam(':last', $last, PDO::PARAM_STR);
-        $insert->bindParam(':age', $age, PDO::PARAM_INT);
-        $insert->bindParam(':username', $this->username, PDO::PARAM_STR);
-        return $insert->execute();
+        if($this->type == 'renter') {
+            $insert = $this->db->prepare('insert into renter(first,last,age,username) values(:first,:last,:age,:username)');
+            $insert->bindParam(':first', $first, PDO::PARAM_STR);
+            $insert->bindParam(':last', $last, PDO::PARAM_STR);
+            $insert->bindParam(':age', $age, PDO::PARAM_INT);
+            $insert->bindParam(':username', $this->username, PDO::PARAM_STR);
+            return $insert->execute();
         }
-        elseif($this->type == 'owner'){
-        $insert = $this->db->prepare('insert into owner(first,last,age,username) values(:first,:last,:age,:username)');
-        $insert->bindParam(':first', $first, PDO::PARAM_STR);
-        $insert->bindParam(':last', $last, PDO::PARAM_STR);
-        $insert->bindParam(':age', $age, PDO::PARAM_INT);
-        $insert->bindParam(':username', $this->username, PDO::PARAM_STR);
-        return $insert->execute();
+        elseif($this->type == 'owner') {
+            $insert = $this->db->prepare('insert into owner(first,last,age,username) values(:first,:last,:age,:username)');
+            $insert->bindParam(':first', $first, PDO::PARAM_STR);
+            $insert->bindParam(':last', $last, PDO::PARAM_STR);
+            $insert->bindParam(':age', $age, PDO::PARAM_INT);
+            $insert->bindParam(':username', $this->username, PDO::PARAM_STR);
+            return $insert->execute();
         }
         
     }

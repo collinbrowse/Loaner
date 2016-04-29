@@ -1,6 +1,7 @@
     <?php require('renterMenu.php'); ?>
-    
-    <div class="col-sm-10">
+
+<h1>Profile page left blank for now</h1>
+    <!--<div class="col-sm-10">
       <form action="insert.php" method="post">
         <h3>Add a Car</h3>
         <div class="col-sm-6">
@@ -44,4 +45,4 @@
                         
         </div>
       </form>
-    </div>
+    </div>-->
