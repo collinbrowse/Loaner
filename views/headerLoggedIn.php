@@ -26,14 +26,16 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid"> 
   
-          <a class="navbar-brand" >Loaner</a>
+          <a class="navbar-brand" href="index.php">Loaner</a>
         
         
     <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a role="button" class="btn btn-success" href="logout.php">Logout</a></li>
-              
+<?php if (isset($_SESSION['user_id'])): ?>
+               <li><a role="button" class="btn btn-success" href="account.php">Profile</a></li>
+               <li><a role="button" class="btn btn-success" href="logout.php">Logout</a></li>
+<?php endif; ?>            
             </ul>
         </div>
       </div><!-- /.container-fluid -->

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // ---------------------------
 // Handle inserting a new car
 // ---------------------------
@@ -26,5 +28,11 @@ else {
   $add->insert($model, $make, $year, $seats, $mileage, $rating, $description);
 }
 // Return home
-header('Location: ./');
-exit();
+if (isset($_SESSION['user_id'])) {
+    header('Location: ./renterProfile.php');
+    exit();
+}
+else {
+    header('Location: ./');
+    exit();
+}

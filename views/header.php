@@ -26,7 +26,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid"> 
   
-          <a class="navbar-brand" >Loaner</a>
+          <a class="navbar-brand" href="index.php">Loaner</a>
         
         
     <!-- Collect the nav links, forms, and other content for toggling -->
