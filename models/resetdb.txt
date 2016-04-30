@@ -29,7 +29,8 @@ create table users (
 
 create table owner (
    owner_id INT AUTO_INCREMENT PRIMARY KEY,
-   name VARCHAR(20) NOT NULL,
+   firstName VARCHAR(20) NOT NULL,
+   lastName VARCHAR(20) NOT NULL,
    rating FLOAT(2,1),
    age INT NOT NULL,
    username VARCHAR(20) NOT NULL UNIQUE
@@ -39,7 +40,8 @@ alter table owner add FOREIGN KEY(username) references users(username);
 
 create table renter (
    renter_id INT AUTO_INCREMENT PRIMARY KEY,
-   name VARCHAR(20) NOT NULL,
+   firstName VARCHAR(20) NOT NULL,
+   lastName VARCHAR(20) NOT NULL,
    rating FLOAT(2,1) NOT NULL,
    age INT NOT NULL,
    username VARCHAR(20) NOT NULL UNIQUE
@@ -83,14 +85,14 @@ insert into cars(model, make, year, seats, mileage, rating, description) values(
 insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2015, 5, 33, 3, "MPG overhaul" );
 
 # Owner data
-insert into owner(name, rating, age, username) values("Officer Huckle", 5, 35, "oHuckle");
-insert into owner(name, rating, age, username) values("Petty Officer Ryan", 5, 22, "pRyan");
-insert into owner(name, rating, age, username) values("Kathy Shrader", 3, 31, "kShrader");
+insert into owner(firstName, lastName, rating, age, username) values("Officer", "Huckle", 5, 35, "oHuckle");
+insert into owner(firstName, lastName, rating, age, username) values("Petty Officer", "Ryan", 5, 22, "pRyan");
+insert into owner(firstName, lastName, rating, age, username) values("Kathy", "Shrader", 3, 31, "kShrader");
 
 # Renter data
-insert into renter(name, rating, age) values("Ron Johnson", 5, 25);
-insert into renter(name, rating, age) values("Ryan Graller", 5, 22);
-insert into renter(name, rating, age) values("Shredder", 0.5, 40);
+insert into renter(firstName, lastName, rating, age, username) values("Ron", "Johnson", 5, 25, "rJohnson");
+insert into renter(firstName, lastName, rating, age, username) values("Ryan", "Graller", 5, 22, "graller10");
+insert into renter(firstName, lastName, rating, age, username) values("Mr.", "Shredder", 0.5, 40, "billyboy52");
 
 # Available car data
 insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",1, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "Canton, NY");
