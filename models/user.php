@@ -4,6 +4,7 @@ class User {
     
     private $db; // PDO connection
     private $username, $password; // Credentials offered
+    private $type;
     
     function __construct($db, $username, $password) {
         $this->db = $db;
@@ -13,6 +14,7 @@ class User {
     
     // Attempt to add this user and return whether it worked
     function register($type) {
+        $this->type = $type;
         $hash = password_hash($this->password, PASSWORD_DEFAULT);
         $insert = $this->db->prepare('insert into users(username,type,password) values(:username,:type,:password)');
         $insert->bindParam(':username', $this->username, PDO::PARAM_STR);
@@ -24,7 +26,7 @@ class User {
     // Attempt to add this user and return whether it worked
     function registerAdditional($first, $last, $age) {
         if($this->type == 'renter') {
-            $insert = $this->db->prepare('insert into renter(first,last,age,username) values(:first,:last,:age,:username)');
+            $insert = $this->db->prepare('insert into renter(firstName,lastName,rating,age,username) values(:first,:last,0,:age,:username)');
             $insert->bindParam(':first', $first, PDO::PARAM_STR);
             $insert->bindParam(':last', $last, PDO::PARAM_STR);
             $insert->bindParam(':age', $age, PDO::PARAM_INT);
@@ -32,7 +34,7 @@ class User {
             return $insert->execute();
         }
         elseif($this->type == 'owner') {
-            $insert = $this->db->prepare('insert into owner(first,last,age,username) values(:first,:last,:age,:username)');
+            $insert = $this->db->prepare('insert into owner(firstName,lastName,rating,age,username) values(:first,:last,0,:age,:username)');
             $insert->bindParam(':first', $first, PDO::PARAM_STR);
             $insert->bindParam(':last', $last, PDO::PARAM_STR);
             $insert->bindParam(':age', $age, PDO::PARAM_INT);
