@@ -29,7 +29,7 @@ else {
 }
 // Return home
 if (isset($_SESSION['user_id'])) {
-    header('Location: ./renterProfile.php');
+    header('Location: account.php');
     exit();
 }
 else {
