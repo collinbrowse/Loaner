@@ -9,7 +9,9 @@ class Car {
     }
     
     function retrieve($seats) {
-      return $this->cs332db->query("select * from cars where seats = '$seats' ORDER BY year;");
+        if ($seats != null && in_array($seats, array('1','2', '3','4','5','6','7','8'))) {
+            return $this->cs332db->query("select * from cars where seats = '$seats' ORDER BY year;");
+        }
     }
 
     // Add a new row to the database
