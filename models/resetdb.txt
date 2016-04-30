@@ -21,7 +21,7 @@ create table cars (
 
 
 create table users (
-	username VARCHAR(16) PRIMARY KEY,
+	username VARCHAR(20) PRIMARY KEY UNIQUE,
     	type VARCHAR(6) NOT NULL,
 	password VARCHAR(255) NOT NULL
 );
@@ -34,18 +34,17 @@ create table owner (
    age INT NOT NULL,
    username VARCHAR(20) NOT NULL UNIQUE
 );
-
-#alter table owner add FOREIGN KEY(username) references users(username);
+alter table owner add FOREIGN KEY(username) references users(username);
 
 
 create table renter (
    renter_id INT AUTO_INCREMENT PRIMARY KEY,
    name VARCHAR(20) NOT NULL,
    rating FLOAT(2,1) NOT NULL,
-   age INT NOT NULL
-   #username VARCHAR(16) NOT NULL
+   age INT NOT NULL,
+   username VARCHAR(20) NOT NULL UNIQUE
 );
-#alter table renter add FOREIGN KEY(username) references users(username);
+alter table renter add FOREIGN KEY(username) references users(username);
 
 
 create table available_cars (
@@ -60,7 +59,13 @@ alter table available_cars add FOREIGN KEY(username) references owner(username);
 alter table available_cars add FOREIGN KEY(car_id) references cars(car_id);
 
 
-
+# User data
+insert into users(username, type, password) values("oHuckle", "owner", "asdfasdfasfdasfsafsfs");
+insert into users(username, type, password) values("pRyan", "renter", "asdfasdfasfdasfsafsfs");
+insert into users(username, type, password) values("kShrader", "owner", "asdfasdfasfdasfsafsfs");
+insert into users(username, type, password) values("rJohnson", "owner", "asdfasdfasfdasfsafsfs");
+insert into users(username, type, password) values("graller10", "owner", "asdfasdfasfdasfsafsfs");
+insert into users(username, type, password) values("billyboy52", "owner", "asdfasdfasfdasfsafsfs");
 
 
 # Car data
