@@ -9,8 +9,10 @@
   }
   else {
     // Retrieve values from the POST array
+    $location = trim($_POST['location']);    
+    $startRental = trim($_POST['rentalStart']);
+    $endRental = trim($_POST['rentalEnd']);
     $seats = trim($_POST['seats']);
-  
     // Create a new model to insert a new car
     require_once('models/car.php');
     $model = new Car($cs332db);

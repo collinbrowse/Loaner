@@ -6,7 +6,7 @@
         <div class="col-sm-3">
           <div class="form-group">
             <label class="control-label" for="location">Location</label>
-            <input type="email" class="form-control" id="location" placeholder="Where ?">
+            <input type="text" class="form-control" id="location" name="location" placeholder="Where ?">
           </div>
         </div>
        
@@ -17,7 +17,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input class="form-control" id="checkIn" name="date" placeholder="YYYY-MM-DD" type="text"/>
+                <input class="form-control" id="checkIn" name="rentalStart" placeholder="YYYY-MM-DD" type="text"/>
               </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input class="form-control" id="checkOut" name="date1" placeholder="YYYY-MM-DD" type="text"/>
+                <input class="form-control" id="checkOut" name="rentalEnd" placeholder="YYYY-MM-DD" type="text"/>
               </div>
           </div>
         </div>
