@@ -31,8 +31,8 @@ create table owner (
    owner_id INT AUTO_INCREMENT PRIMARY KEY,
    name VARCHAR(20) NOT NULL,
    rating FLOAT(2,1),
-   age INT NOT NULL
-   #username VARCHAR(16) NOT NULL
+   age INT NOT NULL,
+   username VARCHAR(20) NOT NULL UNIQUE
 );
 
 #alter table owner add FOREIGN KEY(username) references users(username);
@@ -50,13 +50,13 @@ create table renter (
 
 create table available_cars (
    availability_id INT AUTO_INCREMENT PRIMARY KEY,
-   owner_id INT NOT NULL,
+   username VARCHAR(20) NOT NULL,
    car_id INT NOT NULL,
    startRental DATE NOT NULL,
    endRental DATE NOT NULL,
    location VARCHAR(20) NOT NULL
 );
-alter table available_cars add FOREIGN KEY(owner_id) references owner(owner_id);
+alter table available_cars add FOREIGN KEY(username) references owner(username);
 alter table available_cars add FOREIGN KEY(car_id) references cars(car_id);
 
 
@@ -78,9 +78,9 @@ insert into cars(model, make, year, seats, mileage, rating, description) values(
 insert into cars(model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2015, 5, 33, 3, "MPG overhaul" );
 
 # Owner data
-insert into owner(name, rating, age) values("Officer Huckle", 5, 35);
-insert into owner(name, rating, age) values("Petty Officer Ryan", 5, 22);
-insert into owner(name, rating, age) values("Kathy Shrader", 3, 31);
+insert into owner(name, rating, age, username) values("Officer Huckle", 5, 35, "oHuckle");
+insert into owner(name, rating, age, username) values("Petty Officer Ryan", 5, 22, "pRyan");
+insert into owner(name, rating, age, username) values("Kathy Shrader", 3, 31, "kShrader");
 
 # Renter data
 insert into renter(name, rating, age) values("Ron Johnson", 5, 25);
@@ -88,16 +88,16 @@ insert into renter(name, rating, age) values("Ryan Graller", 5, 22);
 insert into renter(name, rating, age) values("Shredder", 0.5, 40);
 
 # Available car data
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,1, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,2, NOW(), DATE_ADD(NOW(),INTERVAL 1 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,3, NOW(), DATE_ADD(NOW(),INTERVAL 13 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,4, NOW(), DATE_ADD(NOW(),INTERVAL 11 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,5, NOW(), DATE_ADD(NOW(),INTERVAL 7 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,6, NOW(), DATE_ADD(NOW(),INTERVAL 3 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,7, NOW(), DATE_ADD(NOW(),INTERVAL 5 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,8, NOW(), DATE_ADD(NOW(),INTERVAL 6 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,9, NOW(), DATE_ADD(NOW(),INTERVAL 7 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,10, NOW(), DATE_ADD(NOW(),INTERVAL 7 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,11, NOW(), DATE_ADD(NOW(),INTERVAL 9 DAY), "Canton, NY");
-insert into available_cars(owner_id, car_id, startRental, endRental, location) values(1,12, NOW(), DATE_ADD(NOW(),INTERVAL 10 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",1, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",2, NOW(), DATE_ADD(NOW(),INTERVAL 1 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",3, NOW(), DATE_ADD(NOW(),INTERVAL 13 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",4, NOW(), DATE_ADD(NOW(),INTERVAL 11 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",5, NOW(), DATE_ADD(NOW(),INTERVAL 7 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",6, NOW(), DATE_ADD(NOW(),INTERVAL 3 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",7, NOW(), DATE_ADD(NOW(),INTERVAL 5 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",8, NOW(), DATE_ADD(NOW(),INTERVAL 6 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",9, NOW(), DATE_ADD(NOW(),INTERVAL 7 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",10, NOW(), DATE_ADD(NOW(),INTERVAL 7 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",11, NOW(), DATE_ADD(NOW(),INTERVAL 9 DAY), "Canton, NY");
+insert into available_cars(username, car_id, startRental, endRental, location) values("oHuckle",12, NOW(), DATE_ADD(NOW(),INTERVAL 10 DAY), "Canton, NY");
 
