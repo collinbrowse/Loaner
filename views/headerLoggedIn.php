@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
 <?php if (isset($_SESSION['user_id'])): ?>
-               <li><a role="button" class="btn btn-success" href="account.php">Profile</a></li>
+               <li><a role="button" class="btn btn-success" href="profile.php">Profile</a></li>
                <li><a role="button" class="btn btn-success" href="logout.php">Logout</a></li>
 <?php endif; ?>            
             </ul>
