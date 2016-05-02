@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+// Must be logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ./');
+    exit();
+}
 if($_SESSION['type']=='renter'){
     require_once('views/headerLoggedIn.php');
     if (isset($_GET['renterRent'])) {
