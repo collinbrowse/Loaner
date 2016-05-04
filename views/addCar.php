@@ -1,8 +1,8 @@
-
+<?php require('views/ownerMenu.php'); ?>
 <script src="views/datePicker.js"></script>
     <div class="col-sm-10">
       <form action="insert.php" method="post">
-        <h3>Owner Profile</h3>
+        <h3>Add a Car</h3>
         
         <div class="col-sm-6">
           <div class="form-group">
