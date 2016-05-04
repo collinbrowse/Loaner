@@ -10,6 +10,6 @@ if(!isset($_SESSION['user_id'])){
     require_once('views/footer.php');
 }
 else {
-    header('Location: ./account.php');
+    header('Location: ./profile.php');
     exit();
 }
