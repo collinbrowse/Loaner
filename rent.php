@@ -10,11 +10,13 @@ if (!isset($cs332db)) {
 }
 else {
   
-    $car_id = $_POST['car_id'];
-    // Create a new model to remove a car
+    $car_id = trim($_POST['car_id']);
+    $start_rental = trim($_POST['start_rental']);
+    $end_rental = trim($_POST['end_rental']);
+
     require_once('models/car.php');
-    $model = new Car($cs332db);
-    $query = $model->rent($car_id);
+    $car = new Car($cs332db);
+    $query = $car->rent($car_id, $start_rental, $end_rental);
 }
 
 // Return home

@@ -20,7 +20,7 @@
           <div class="form-group">
               <label>Capacity</label>
               <fieldset>
-                  <select  name="seats" class="form-control">
+                  <select name="seats" class="form-control">
                     <option value="">Select a number of seats</option>
                     <option>2</option>
                     <option>4</option>
@@ -31,30 +31,30 @@
                   </select>
               </fieldset>
           </div>
-        </div>
-        
-        <div class="col-sm-6">
           <div class="form-group">
               <label>MPG</label>
               <input type="number" name="mileage" min=0 class="form-control">
           </div>
+        </div>
+        
+        <div class="col-sm-6">
           <div class="form-group">
               <label>Description</label>
               <input type="text" name="description" class="form-control">
           </div>
           <div class="form-group">
             <label>Date Available</label>
-            <input type="text" name="startRental" placeholder="YYYY-MM-DD" class="from-control">
+            <input type="text" name="startRental" placeholder="YYYY-MM-DD" class="form-control">
           </div>
           <div class="form-group">
             <label>End Date</label>
-            <input type="text" name="endRental" placeholder="YYYY-MM-DD" class="from-control">
+            <input type="text" name="endRental" placeholder="YYYY-MM-DD" class="form-control">
           </div>
           <div class="form-group">
             <label>Location</label>
-            <input type="text" name="location" placeholder="City" class="from-control">
+            <input type="text" name="location" placeholder="City" class="form-control">
           </div>
-          
+          <br>
           <button type="submit" class="btn btn-warning" name="submit" >Submit</button>              
         </div>
       </form>

@@ -1,16 +1,18 @@
     <div class="col-sm-2">
       <ul class="nav nav-pills nav-stacked">
-        <li <?php if ($_SERVER['REQUEST_URI'] == '/') echo 'class="active"'; ?>>
+        <li>
           <a href="../">Home</a>
         </li>                 
-        <li role="presentation" <?php if ($_SERVER['REQUEST_URI'] == '../views/renterProfile.php') echo 'class="active"'; ?> >
-          <a href="account.php">Profile</a>
+        <li <?php if ($_SERVER['REQUEST_URI'] == 'profile.php') echo 'class="active"'; ?> >
+          <a href="../profile.php">Profile</a>
         </li>
-        <li role="presentation" <?php if ($_SERVER['REQUEST_URI'] == '../views/renterRent.php') echo 'class="active"'; ?>>
-          <a href="account.php?renterRent">Rent a Car</a>
+        <li <?php if ($_SERVER['REQUEST_URI'] == 'rentalCarSearch.php') echo 'class="active"'; ?>>
+          <a href="../rentalCarSearch.php">Rent a Car</a>
         </li>
-        <li role="presentation">
+        <li>
           <a href="#">Rental History</a>
         </li>
       </ul>
     </div>
+    
+  

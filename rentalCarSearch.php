@@ -1,4 +1,3 @@
-
 <?php // Controller for renting ability
 
 session_start();
