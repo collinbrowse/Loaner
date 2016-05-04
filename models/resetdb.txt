@@ -65,13 +65,14 @@ alter table available_cars add FOREIGN KEY(car_id) references cars(car_id);
 create table rental_history (
    history_id INT AUTO_INCREMENT PRIMARY KEY,
    car_id INT NOT NULL,
-   renter_id INT NOT NULL,
+   username VARCHAR(20) NOT NULL UNIQUE,
    start_rental DATE NOT NULL,
-   end_rental DATE NOT NULL
+   end_rental DATE NOT NULL,
+   location VARCHAR(20) NOT NULL
 );
 
 alter table rental_history add FOREIGN KEY(car_id) references cars(car_id);
-alter table rental_history add FOREIGN KEY(renter_id) references renter(renter_id);
+alter table rental_history add FOREIGN KEY(username) references renter(username);
 
 
 # User data
