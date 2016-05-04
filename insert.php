@@ -34,7 +34,7 @@ else {
 }
 // Return home
 if (isset($_SESSION['user_id'])) {
-    header('Location: account.php');
+    header('Location: profile.php');
     exit();
 }
 else {
