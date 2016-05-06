@@ -1,5 +1,4 @@
 <?php require('views/ownerMenu.php'); ?>
-<script src="views/datePicker.js"></script>
     <div class="col-sm-10">
       <form action="insert.php" method="post">
         <h3>Add a Car</h3>
@@ -44,11 +43,11 @@
           </div>
           <div class="form-group">
             <label>Date Available</label>
-            <input type="text" name="startRental" placeholder="YYYY-MM-DD" class="form-control">
+            <input type="text" name="start_rental" placeholder="YYYY-MM-DD" class="form-control">
           </div>
           <div class="form-group">
             <label>End Date</label>
-            <input type="text" name="endRental" placeholder="YYYY-MM-DD" class="form-control">
+            <input type="text" name="end_rental" placeholder="YYYY-MM-DD" class="form-control">
           </div>
           <div class="form-group">
             <label>Location</label>
