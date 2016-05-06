@@ -8,10 +8,12 @@ $(document).ready(function() {
         format: 'yyyy-mm-dd',
         todayHighlight: true,
         autoclose: true,
+        orientation: "top"
     })
     date_input1.datepicker({
         format: 'yyyy-mm-dd',
         todayHighlight: true,
         autoclose: true,
+        orientation: "top"
     })
 });
