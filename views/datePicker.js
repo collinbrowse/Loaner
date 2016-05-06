@@ -14,18 +14,4 @@ $(document).ready(function() {
         todayHighlight: true,
         autoclose: true,
     })
-    
-    //var startRental=$('input[name="startRental"]');
-    //startRental.datepicker({
-    //    format: 'yyyy-mm-dd',
-    //    todayHighlight: true,
-    //    autoclose: true,
-    //})
-    //var endRental=$('input[name="endRental"]');
-    //endRental.datepicker({
-    //    format: 'yyyy-mm-dd',
-    //    todayHighlight: true,
-    //    autoclose: true,
-    //})
-
 });
