@@ -21,5 +21,6 @@
               <!-- col-sm-10 --> 
             </div>
           </div>
+        </div>
     </div>
     
