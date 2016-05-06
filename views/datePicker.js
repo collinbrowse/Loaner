@@ -2,8 +2,8 @@
 // Link: https://formden.com/blog/date-picker
 
 $(document).ready(function() {
-    var date_input=$('input[name="rentalStart"]'); //date input has the name "date"
-    var date_input1=$('input[name="rentalEnd"]'); 
+    var date_input=$('input[name="start_rental"]'); //date input has the name "date"
+    var date_input1=$('input[name="end_rental"]'); 
     date_input.datepicker({
         format: 'yyyy-mm-dd',
         todayHighlight: true,
@@ -15,17 +15,17 @@ $(document).ready(function() {
         autoclose: true,
     })
     
-    var startRental=$('inpute[name="startRental"]');
-    startRental.datepicker({
-        format: 'yyyy-mm-dd',
-        todayHighlight: true,
-        autoclose: true,
-    })
-    var endRental=$('inpute[name="endRental"]');
-    endRental.datepicker({
-        format: 'yyyy-mm-dd',
-        todayHighlight: true,
-        autoclose: true,
-    })
+    //var startRental=$('input[name="startRental"]');
+    //startRental.datepicker({
+    //    format: 'yyyy-mm-dd',
+    //    todayHighlight: true,
+    //    autoclose: true,
+    //})
+    //var endRental=$('input[name="endRental"]');
+    //endRental.datepicker({
+    //    format: 'yyyy-mm-dd',
+    //    todayHighlight: true,
+    //    autoclose: true,
+    //})
 
 });
