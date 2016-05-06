@@ -6,12 +6,12 @@
         
         <div class="col-sm-6">
           <div class="form-group">
-              <label>Model</label>
-              <input type="text" name="model" class="form-control">
-          </div>
-          <div class="form-group">
               <label>Make</label>
               <input type="text" name="make" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>Model</label>
+              <input type="text" name="model" class="form-control">
           </div>
           <div class="form-group">
               <label>Year</label>
