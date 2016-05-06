@@ -1,5 +1,4 @@
 <?php require('views/ownerMenu.php'); ?>
-<script src="views/datePicker.js"></script>
     <div class="col-sm-10">
         <h3>Owner Profile</h3>
         <img src="views/pics/avatar.gif" alt="avatar" style="width:150px;height:150px;">
