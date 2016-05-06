@@ -37,6 +37,11 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['task
                 session_regenerate_id(true); // New session for login
                 $_SESSION['user_id'] = $user_info[0];
                 $_SESSION['type'] = $user_info[1];
+                $profile_info = $user-> getProfileInfo($user_info[1]);
+                $_SESSION['firstName'] = $profile_info[0];
+                $_SESSION['lastName'] = $profile_info[1];
+                $_SESSION['age'] = $profile_info[2];
+                
             } else {
                 $_SESSION['message'] = 'Wrong username or password.';
             }
