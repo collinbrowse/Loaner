@@ -1,4 +1,6 @@
 <?php require('views/ownerMenu.php'); ?>
+
+  <div class="container-fluid">
     <div class="col-sm-10">
       <form action="insert.php" method="post">
         <h3>Add a Car</h3>
@@ -57,4 +59,6 @@
           <button type="submit" class="btn btn-warning" name="submit" >Submit</button>              
         </div>
       </form>
-    </div>
+    </div>   
+  </div>
+  

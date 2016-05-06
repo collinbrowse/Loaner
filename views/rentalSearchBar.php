@@ -17,7 +17,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input class="form-control" id="checkIn" name="start_rental" placeholder="YYYY-MM-DD" type="text"/>
+                <input class="form-control" id="checkIn" name="rentalStart" placeholder="YYYY-MM-DD" type="text"/>
               </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input class="form-control" id="checkOut" name="end_rental" placeholder="YYYY-MM-DD" type="text"/>
+                <input class="form-control" id="checkOut" name="rentalEnd" placeholder="YYYY-MM-DD" type="text"/>
               </div>
           </div>
         </div>
