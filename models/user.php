@@ -57,4 +57,21 @@ class User {
             return NULL;
         }
     }
+    
+    function getProfileInfo($type) {
+        if($type=='renter'){
+        $select = $this->db->prepare('select * from renter natural join users where username=:username');
+        $select->bindParam(':username', $this->username, PDO::PARAM_STR);
+        $select->execute();
+        }
+        else{
+        $select = $this->db->prepare('select * from owner natural join users where username=:username');
+        $select->bindParam(':username', $this->username, PDO::PARAM_STR);
+        $select->execute();
+        }
+        $row = $select->fetch(PDO::FETCH_ASSOC);
+        
+        return array($row['firstName'],$row['lastName'],$row['age']);
+        
+    }
 }
