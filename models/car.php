@@ -51,32 +51,32 @@ class Car {
         $addCar->execute();
     }
     
-    function rent($car_id, $start_rental, $end_rental) {
-      
-      // Get the renter's ID
-      $user_id = $_SESSION['user_id'];
-      $gid = $this->cs332db->prepare("SELECT renter_id from renter where username = :user_id");
-      $gid->bindParam(':user_id', $user_id, PDO::PARAM_STR, 20);
-      $gid->execute();
-      $test = $gid->fetch(PDO::FETCH_ASSOC);
-      $renter_id = $test['renter_id'];
-      
-      $_SESSION['start_rental'] = $start_rental;
-      $_SESSION['end_rental'] = $end_rental;
-      
+    function rent($username, $car_id, $start_rental, $end_rental, $location) {
       
       // Code to add a car to the rental_history table
-      $rent = $this->cs332db->prepare("INSERT INTO rental_history(car_id, renter_id, start_rental, end_rental) values(:car_id, :renter_id, :start_rental, :end_rental);");
+      $rent = $this->cs332db->prepare("INSERT INTO rental_history(username, car_id, start_rental, end_rental, location) values(:username, :car_id, :start_rental, :end_rental, :location);");
+      $rent->bindParam(':username', $username, PDO::PARAM_STR, 20);
       $rent->bindParam(':car_id', $car_id, PDO::PARAM_INT, 20);
-      $rent->bindParam(':renter_id', $renter_id, PDO::PARAM_INT, 20);
       $rent->bindParam(':start_rental', $start_rental);
       $rent->bindParam(':end_rental', $end_rental);
+      $rent->bindParam(':location', $location, PDO::PARAM_STR, 20);
       $rent->execute();
-        
+
       // Remove as an available car
       $insert = $this->cs332db->prepare("DELETE FROM available_cars WHERE car_id = :car_id");
       $insert->bindParam(':car_id', $car_id, PDO::PARAM_INT, 20);
       $insert->execute();
           
+    }
+    
+    function getRentalHistory($username) {
+      
+      // Return all cars that are associated with a specific username
+      $query = $this->cs332db->prepare("SELECT * from rental_history natural join cars where username = :username;");
+      $query->bindParam(':username', $username, PDO::PARAM_STR, 20);
+      $query->execute();
+      $history = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $history;
+    
     }
 }

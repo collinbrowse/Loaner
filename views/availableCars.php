@@ -13,6 +13,7 @@
               <th>Description</th>
               <th>Start Rental</th>
               <th>End Rental</th>
+              <th>Location</th>
               <th></th>
             </tr>
           </thead>
@@ -29,12 +30,14 @@
               <td><?php echo htmlentities($row['description'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['start_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td><?php echo htmlentities($row['location'], ENT_QUOTES, 'utf-8'); ?></td>
               <td>
                 <form action="rent.php" method="post">
-                  <input type="submit" name="car_id" value="Rent This Car!">            
+                  <input type="submit" name="car" value="Rent This Car!">            
                   <input type="hidden" name="car_id" value="<?php echo htmlentities($row['car_id'], ENT_QUOTES, 'utf-8');?>">
                   <input type="hidden" name="start_rental" value="<?php echo htmlentities($row['start_rental'], ENT_QUOTES, 'utf-8');?>">
                   <input type="hidden" name="end_rental" value="<?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8');?>">
+                  <input type="hidden" name="location" value="<?php echo htmlentities($row['location'], ENT_QUOTES, 'utf-8');?>">
                 </form>
               </td>
             </tr>
