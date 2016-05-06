@@ -1,6 +1,4 @@
 <?php require('views/ownerMenu.php'); ?>
-
-  <div class="container-fluid">
     <div class="col-sm-10">
       <form action="insert.php" method="post">
         <h3>Add a Car</h3>
@@ -19,10 +17,9 @@
               <input type="text" name="year" class="form-control">
           </div>           
           <div class="form-group">
-              <label>Capacity</label>
+              <label>Seats</label>
               <fieldset>
                   <select name="seats" class="form-control">
-                    <option value="">Select a number of seats</option>
                     <option>2</option>
                     <option>4</option>
                     <option>5</option>
@@ -59,6 +56,4 @@
           <button type="submit" class="btn btn-warning" name="submit" >Submit</button>              
         </div>
       </form>
-    </div>   
-  </div>
-  
+    </div>
