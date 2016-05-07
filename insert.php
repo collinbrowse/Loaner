@@ -22,8 +22,8 @@ else {
   $rating = null;
   $description = trim($_POST['description']);
   $username = trim($_SESSION['user_id']);
-  $startRental = trim($_POST['startRental']);
-  $endRental = trim($_POST['endRental']);
+  $startRental = trim($_POST['start_rental']);
+  $endRental = trim($_POST['end_rental']);
   $location = trim($_POST['location']);
   
   // Create a new model to insert a new car
