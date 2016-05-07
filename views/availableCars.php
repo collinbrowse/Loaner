@@ -21,8 +21,8 @@
           <tbody> 
 <?php foreach ($query as $row):?>
             <tr>
-              <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['make'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['year'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['seats'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['mileage'], ENT_QUOTES, 'utf-8'); ?></td>
