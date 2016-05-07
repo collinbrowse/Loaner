@@ -54,9 +54,9 @@ class Car {
     function rent($username, $car_id, $start_rental, $end_rental, $location) {
       
       // Code to add a car to the rental_history table
-      $rent = $this->cs332db->prepare("INSERT INTO rental_history(username, car_id, start_rental, end_rental, location) values(:username, :car_id, :start_rental, :end_rental, :location);");
-      $rent->bindParam(':username', $username, PDO::PARAM_STR, 20);
+      $rent = $this->cs332db->prepare("INSERT INTO rental_history(car_id,username, start_rental, end_rental, location) values( :car_id, :username, :start_rental, :end_rental, :location);");
       $rent->bindParam(':car_id', $car_id, PDO::PARAM_INT, 20);
+      $rent->bindParam(':username', $username, PDO::PARAM_STR, 20);
       $rent->bindParam(':start_rental', $start_rental);
       $rent->bindParam(':end_rental', $end_rental);
       $rent->bindParam(':location', $location, PDO::PARAM_STR, 20);
