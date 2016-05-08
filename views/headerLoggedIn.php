@@ -26,11 +26,12 @@
         
         
     <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
 <?php if (isset($_SESSION['user_id'])): ?>
-               <li><a role="button" class="btn btn-success" href="profile.php">Profile</a></li>
-               <li><a role="button" class="btn btn-success" href="logout.php">Logout</a></li>
+               <li><p class="navbar-text">Signed in as <?php echo htmlentities($_SESSION['user_id'], ENT_QUOTES, 'utf-8'); ?></p></li>
+               <li><a role="button" class="btn btn-success btn-md" href="profile.php">Profile</a></li>
+               <li><a role="button" class="btn btn-success btn-md" href="logout.php">Logout</a></li>
 <?php endif; ?>            
             </ul>
         </div>
