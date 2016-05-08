@@ -50,8 +50,12 @@
             <input type="text" name="end_rental" placeholder="YYYY-MM-DD" class="form-control">
           </div>
           <div class="form-group">
-            <label>Location</label>
-            <input type="text" name="location" placeholder="City" class="form-control">
+            <label>City</label>
+            <input type="text" name="city" placeholder="City" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <input type="text" name="state" placeholder="State" class="form-control">
           </div>
           <br>
           <button type="submit" class="btn btn-warning" name="submit" >Submit</button>              
