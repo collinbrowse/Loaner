@@ -8,7 +8,8 @@
               <th>Model</th>
               <th>Make</th>
               <th>Rating</th>
-              <th>Location</th>
+              <th>City</th>
+              <th>State</th>
               <th>Start Rental</th>
               <th>End Rental</th>
             </tr>
@@ -20,7 +21,8 @@
               <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['make'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['rating'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['location'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td><?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8'); ?></td>
+              <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['start_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8'); ?></td>
             </tr>
