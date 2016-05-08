@@ -18,24 +18,25 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   </head>
   <body>
-      
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
       <script src="views/datePicker.js"></script>
-      
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      
+<!-- Navigation Bar-->
     <nav class="navbar navbar-default">
-      <div class="container-fluid"> 
-  
+      <div class="container-fluid">
+        
+        <div class="navbar-header">
           <a class="navbar-brand" href="index.php">Loaner</a>
+        </div>
         
-        
-    <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+        <div class="nav navbar-nav navbar-right"> 
+            <ul class="nav navbar-nav">
               <li><a id="myBtn" role="button" >Login</a></li>
               <li><a href="register.php">Signup</a></li>
             </ul>
         </div>
+        
       </div><!-- /.container-fluid -->
     </nav>
   

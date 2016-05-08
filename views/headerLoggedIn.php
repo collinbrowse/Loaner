@@ -17,23 +17,26 @@
   <body>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
       <script src="views/datePicker.js"></script>
-      
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+    
+<!-- Navigation bar-->
     <nav class="navbar navbar-default">
-      <div class="container-fluid"> 
-  
+      <div class="container-fluid">
+        
+        <div class="navbar-header">
           <a class="navbar-brand" href="index.php">Loaner</a>
+        </div>
         
-        
-    <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
+        <div class="nav navbar-nav navbar-right">
 <?php if (isset($_SESSION['user_id'])): ?>
-               <li><p class="navbar-text">Signed in as <?php echo htmlentities($_SESSION['user_id'], ENT_QUOTES, 'utf-8'); ?></p></li>
-               <li><a role="button" class="btn btn-success btn-md" href="profile.php">Profile</a></li>
-               <li><a role="button" class="btn btn-success btn-md" href="logout.php">Logout</a></li>
-<?php endif; ?>            
+            <p class="navbar-text">Signed in as <?php echo htmlentities($_SESSION['user_id'], ENT_QUOTES, 'utf-8'); ?></p>
+            <ul class="nav navbar-nav">
+              <li><a role="button" class="btn btn-success btn-md" href="profile.php">Profile</a></li>
+              <li><a role="button" class="btn btn-success btn-md" href="logout.php">Logout</a></li>
             </ul>
+<?php endif; ?>            
+          
         </div>
       </div><!-- /.container-fluid -->
     </nav>
