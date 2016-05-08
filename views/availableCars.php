@@ -15,7 +15,9 @@
               <th>End Rental</th>
               <th>City</th>
               <th>State</th>
+<?php if ($_SESSION['user_id'] == 'renter'): ?> 
               <th></th>
+<?php endif; ?>                            
             </tr>
           </thead>
 
@@ -32,8 +34,9 @@
               <td><?php echo htmlentities($row['start_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td>
+              <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>              
+  <?php if ($_SESSION['user_id'] == 'renter'): ?>                
+              <td>  
                 <form action="rent.php" method="post">
                   <input type="submit" name="car" value="Rent This Car!">            
                   <input type="hidden" name="car_id" value="<?php echo htmlentities($row['car_id'], ENT_QUOTES, 'utf-8');?>">
@@ -43,7 +46,8 @@
                   <input type="hidden" name="city" value="<?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8');?>">
                 </form>
               </td>
-            </tr>
+  <?php endif; ?>              
+            </tr>            
 <?php endforeach; ?>
           </tbody>   
     </div>
