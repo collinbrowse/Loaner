@@ -31,7 +31,7 @@ class Car {
     }
     
     // Make the car avaialable to rent
-    function newCar($username, $start_rental, $end_rental, $location) {
+    function newCar($username, $start_rental, $end_rental, $state, $city) {
         // Retrieve the car_id for the car that was just added to the db
         // Functionality for the future: make a car available that was already available once
         $gid = $this->cs332db->prepare("SELECT MAX(car_id) as maxID FROM cars;");
@@ -40,26 +40,28 @@ class Car {
         $car_id = $test['maxID'];
         
         // Now update the available cars table
-        $addCar = $this->cs332db->prepare("insert into available_cars(username, car_id, start_rental, end_rental, location) values(:username, :car_id, :start_rental, :end_rental, :location)");
+        $addCar = $this->cs332db->prepare("insert into available_cars(username, car_id, start_rental, end_rental, state, city) values(:username, :car_id, :start_rental, :end_rental, :state, :city)");
         $addCar->bindParam(':username', $username, PDO::PARAM_STR, 20);
         $addCar->bindParam(':car_id', $car_id, PDO::PARAM_INT, 20);
         $addCar->bindParam(':start_rental', $start_rental);
         $addCar->bindParam(':end_rental', $end_rental);
-        $addCar->bindParam(':location', $location, PDO::PARAM_STR, 20);
+        $addCar->bindParam(':state', $state, PDO::PARAM_STR, 20);
+        $addCar->bindParam(':city', $city, PDO::PARAM_STR, 20);
         
         // Perform the insert
         $addCar->execute();
     }
     
-    function rent($username, $car_id, $start_rental, $end_rental, $location) {
+    function rent($username, $car_id, $start_rental, $end_rental, $state, $city) {
       
       // Code to add a car to the rental_history table
-      $rent = $this->cs332db->prepare("INSERT INTO rental_history(car_id,username, start_rental, end_rental, location) values( :car_id, :username, :start_rental, :end_rental, :location);");
+      $rent = $this->cs332db->prepare("INSERT INTO rental_history(car_id,username, start_rental, end_rental, state, city) values( :car_id, :username, :start_rental, :end_rental, :state, :city);");
       $rent->bindParam(':car_id', $car_id, PDO::PARAM_INT, 20);
       $rent->bindParam(':username', $username, PDO::PARAM_STR, 20);
       $rent->bindParam(':start_rental', $start_rental);
       $rent->bindParam(':end_rental', $end_rental);
-      $rent->bindParam(':location', $location, PDO::PARAM_STR, 20);
+      $rent->bindParam(':state', $state, PDO::PARAM_STR, 20);
+      $rent->bindParam(':city', $city, PDO::PARAM_STR, 20);
       $rent->execute();
 
       // Remove as an available car
