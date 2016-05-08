@@ -24,13 +24,14 @@ else {
   $username = trim($_SESSION['user_id']);
   $startRental = trim($_POST['start_rental']);
   $endRental = trim($_POST['end_rental']);
-  $location = trim($_POST['location']);
+  $city = trim($_POST['city']);
+  $state = trim($_POST['state']);
   
   // Create a new model to insert a new car
   require_once('models/car.php');
   $add = new Car($cs332db);
   $add->insert($model, $make, $year, $seats, $mileage, $rating, $description);
-  $result = $add->newCar($username, $startRental, $endRental, $location);
+  $result = $add->newCar($username, $startRental, $endRental, $state, $city);
 }
 // Return home
 if (isset($_SESSION['user_id'])) {
