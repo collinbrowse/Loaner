@@ -8,10 +8,25 @@ class Car {
       $this->cs332db = $cs332db;   
     }
     
-    function retrieve($seats) {
-        if ($seats != null && in_array($seats, array('1','2', '3','4','5','6','7','8'))) {
-            return $this->cs332db->query("select * from cars natural join available_cars where seats = '$seats';");
-        }
+    function retrieve($state, $city, $start_rental, $end_rental, $seats) {
+      
+      
+      // Sanitize the input
+      $query = $this->cs332db->prepare("SELECT * FROM available_cars NATURAL JOIN cars WHERE state = :state AND city = :city and start_rental = :start_rental and end_rental = :end_rental and seats = :seats;");
+      $query->bindParam(':state', $state, PDO::PARAM_STR, 20);
+      $query->bindParam(':city', $city, PDO::PARAM_STR, 20);
+      $query->bindParam(':start_rental', $start_rental);
+      $query->bindParam(':end_rental', $end_rental);
+      $query->bindParam(':seats', $seats, PDO::PARAM_INT, 4);
+      
+      $query->execute();
+      $cars = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $cars;
+      
+      // Things I need: City, State, start_rental, end_rental
+        //if ($seats != null && in_array($seats, array('1','2', '3','4','5','6','7','8'))) {
+        //  return $this->cs332db->query("select * from cars natural join available_cars where seats = '$seats';");
+        //}
     }
 
     // Add a new row to the database

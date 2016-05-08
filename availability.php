@@ -11,13 +11,13 @@
     // Retrieve values from the POST array
     $state = trim($_POST['state']);
     $city = trim($_POST['city']);
-    $startRental = trim($_POST['start_rental']);
-    $endRental = trim($_POST['end_rental']);
+    $start_rental = trim($_POST['start_rental']);
+    $end_rental = trim($_POST['end_rental']);
     $seats = trim($_POST['seats']);
     // Create a new model to insert a new car
     require_once('models/car.php');
     $model = new Car($cs332db);
-    $query = $model->retrieve($seats);
+    $query = $model->retrieve($state, $city, $start_rental, $end_rental, $seats);
   }
   
   if (!isset($_SESSION['user_id'])) {
