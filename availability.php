@@ -9,7 +9,8 @@
   }
   else {
     // Retrieve values from the POST array
-    $location = trim($_POST['location']);    
+    $state = trim($_POST['state']);
+    $city = trim($_POST['city']);
     $startRental = trim($_POST['start_rental']);
     $endRental = trim($_POST['end_rental']);
     $seats = trim($_POST['seats']);
