@@ -15,7 +15,7 @@
               <th>End Rental</th>
               <th>City</th>
               <th>State</th>
-<?php if ($_SESSION['user_id'] == 'renter'): ?> 
+<?php if (isset($_SESSION['user_id']) &&  $_SESSION['user_id'] == 'renter'): ?> 
               <th></th>
 <?php endif; ?>                            
             </tr>
@@ -35,7 +35,7 @@
               <td><?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>              
-  <?php if ($_SESSION['user_id'] == 'renter'): ?>                
+  <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 'renter'): ?>                
               <td>  
                 <form action="rent.php" method="post">
                   <input type="submit" name="car" value="Rent This Car!">            
