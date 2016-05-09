@@ -22,11 +22,6 @@ class Car {
       $query->execute();
       $cars = $query->fetchAll(PDO::FETCH_ASSOC);
       return $cars;
-      
-      // Things I need: City, State, start_rental, end_rental
-        //if ($seats != null && in_array($seats, array('1','2', '3','4','5','6','7','8'))) {
-        //  return $this->cs332db->query("select * from cars natural join available_cars where seats = '$seats';");
-        //}
     }
 
     // Add a new row to the database

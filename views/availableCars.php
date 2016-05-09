@@ -20,9 +20,9 @@
 <?php endif; ?>                            
             </tr>
           </thead>
-
+<?php if($query !=  null): ?> 
           <tbody> 
-<?php foreach ($query as $row):?>
+  <?php foreach ($query as $row):?>
             <tr>
               <td><?php echo htmlentities($row['make'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
@@ -35,7 +35,7 @@
               <td><?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>              
-  <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 'renter'): ?>                
+    <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 'renter'): ?>                
               <td>  
                 <form action="rent.php" method="post">
                   <input type="submit" name="car" value="Rent This Car!">            
@@ -46,8 +46,13 @@
                   <input type="hidden" name="city" value="<?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8');?>">
                 </form>
               </td>
-  <?php endif; ?>              
+    <?php endif; ?>              
             </tr>            
-<?php endforeach; ?>
-          </tbody>   
+  <?php endforeach; ?>
+          </tbody>
+<?php else: ?>
+  <h1>
+  <?php echo "There are no cars available according to your search. Please try another search"; ?>
+  </h1>
+<?php endif; ?>
     </div>
