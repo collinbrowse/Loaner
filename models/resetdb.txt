@@ -1,20 +1,39 @@
 use cs332;
 
 drop table if exists rental_history;
-drop table if exists rented_out;
-drop table if exists available_cars;
+drop table if exists status;
+drop table if exists cars;
 drop table if exists renter;
 drop table if exists owner;
-drop table if exists owner_cars;
-drop table if exists cars;
 drop table if exists users;
 
 
 create table users (
 	username VARCHAR(20) PRIMARY KEY UNIQUE,
-    	type VARCHAR(6) NOT NULL,
+   type VARCHAR(6) NOT NULL,
 	password VARCHAR(255) NOT NULL
 );
+
+create table owner (
+   owner_id INT AUTO_INCREMENT PRIMARY KEY,
+   firstName VARCHAR(20) NOT NULL,
+   lastName VARCHAR(20) NOT NULL,
+   rating FLOAT(2,1),
+   age INT NOT NULL,
+   owner_username VARCHAR(20) NOT NULL UNIQUE
+);
+alter table owner add FOREIGN KEY(owner_username) references users(username);
+
+
+create table renter (
+   renter_id INT AUTO_INCREMENT PRIMARY KEY,
+   firstName VARCHAR(20) NOT NULL,
+   lastName VARCHAR(20) NOT NULL,
+   rating FLOAT(2,1) NOT NULL,
+   age INT NOT NULL,
+   renter_username VARCHAR(20) NOT NULL UNIQUE
+);
+alter table renter add FOREIGN KEY(renter_username) references users(username);
 
 create table cars (
    car_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -24,67 +43,28 @@ create table cars (
    seats INT NOT NULL,
    mileage INT NOT NULL,
    rating FLOAT(2,1),
-   description VARCHAR(20)
+   description VARCHAR(20),
+   owner_username VARCHAR(20) NOT NULL
 );
-   
-create table owner_cars (
-   owner_cars_id INT AUTO_INCREMENT PRIMARY KEY,
-   car_id INT NOT NULL UNIQUE,
-   username VARCHAR(20) NOT NULL
-);
-alter table owner_cars add FOREIGN KEY(username) references users(username);
-alter table owner_cars add FOREIGN KEY(car_id) references cars(car_id);
-
-create table owner (
-   owner_id INT AUTO_INCREMENT PRIMARY KEY,
-   firstName VARCHAR(20) NOT NULL,
-   lastName VARCHAR(20) NOT NULL,
-   rating FLOAT(2,1),
-   age INT NOT NULL,
-   username VARCHAR(20) NOT NULL UNIQUE
-);
-alter table owner add FOREIGN KEY(username) references users(username);
+alter table cars add FOREIGN KEY(owner_username) references owner(owner_username);
 
 
-create table renter (
-   renter_id INT AUTO_INCREMENT PRIMARY KEY,
-   firstName VARCHAR(20) NOT NULL,
-   lastName VARCHAR(20) NOT NULL,
-   rating FLOAT(2,1) NOT NULL,
-   age INT NOT NULL,
-   username VARCHAR(20) NOT NULL UNIQUE
-);
-alter table renter add FOREIGN KEY(username) references users(username);
-
-
-create table available_cars (
-   availability_id INT AUTO_INCREMENT PRIMARY KEY,
-   username VARCHAR(20) NOT NULL,
-   car_id INT NOT NULL UNIQUE,
-   start_rental DATE NOT NULL,
-   end_rental DATE NOT NULL,
+create table status (
+   car_id INT PRIMARY KEY,
+   status VARCHAR(20) NOT NULL,
+   city VARCHAR(20) NOT NULL,
    state VARCHAR(20) NOT NULL,
-   city VARCHAR(20) NOT NULL
+   start_rental DATE,
+   end_rental DATE
 );
-alter table available_cars add FOREIGN KEY(username) references owner(username);
-alter table available_cars add FOREIGN KEY(car_id) references cars(car_id);
+alter table status add FOREIGN KEY(car_id) references cars(car_id);
 
-create table rented_out (
-   rented_out_id INT AUTO_INCREMENT PRIMARY KEY,
-   car_id INT NOT NULL UNIQUE,
-   renter_username VARCHAR(20) NOT NULL UNIQUE,
-   owner_username VARCHAR(20) NOT NULL,
-   start_rental DATE NOT NULL,
-   end_rental DATE NOT NULL
-);
-alter table rented_out add FOREIGN KEY(renter_username) references users(username);
-alter table rented_out add FOREIGN KEY(owner_username) references users(username);
-alter table rented_out add FOREIGN KEY(car_id) references cars(car_id);
+
 
 
 create table rental_history (
    history_id INT AUTO_INCREMENT PRIMARY KEY,
-   username VARCHAR(20) NOT NULL,  
+   renter_username VARCHAR(20) NOT NULL,  
    car_id INT NOT NULL,
    start_rental DATE NOT NULL,
    end_rental DATE NOT NULL,
@@ -93,7 +73,7 @@ create table rental_history (
 );
 
 alter table rental_history add FOREIGN KEY(car_id) references cars(car_id);
-alter table rental_history add FOREIGN KEY(username) references renter(username);
+alter table rental_history add FOREIGN KEY(renter_username) references renter(renter_username);
 
 
 # User data
@@ -105,61 +85,43 @@ insert into users(username, type, password) values("graller10", "owner", "asdfas
 insert into users(username, type, password) values("billyboy52", "owner", "asdfasdfasfdasfsafsfs");
 
 
-# Car data
-insert into cars( model, make, year, seats, mileage, rating, description) values("Golf GTI", "Volkswagon", 2011, 2, 28, 4.5, "Little thing whips" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2002, 5, 26, 3, "Great snow control" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("Corolla", "Toyota", 2011, 2, 32, 4.5, "great mpg" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("Civic", "Honda", 2002, 5, 35, 5, "Best I evah had" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("Rav 4", "Toyota", 2016, 5, 28, 4.5, "Quite spacious" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("G6", "Pontiac", 2010, 3, 26, 3, "So fly" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("Accord", "Honda", 2011, 5, 28, 4.5, "Not as good as Civic" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2012, 5, 26, 3, "Newer model is better" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("Golf GTI", "Volkswagon", 2012, 5, 28, 4.5, "Little thing whips more" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("Civic", "Honda", 2014, 8, 26, 3, "Stylish" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2011, 7, 28, 4.5, "Little thing whips" );
-insert into cars( model, make, year, seats, mileage, rating, description) values("CRV", "Honda", 2015, 5, 33, 3, "MPG overhaul" );
-
-# Car Owner Data
-insert into owner_cars(car_id, username) values(1,"oHuckle");
-insert into owner_cars(car_id, username) values(2,"oHuckle");
-insert into owner_cars(car_id, username) values(3,"oHuckle");
-insert into owner_cars(car_id, username) values(4,"oHuckle");
-insert into owner_cars(car_id, username) values(5,"oHuckle");
-insert into owner_cars(car_id, username) values(6,"oHuckle");
-insert into owner_cars(car_id, username) values(7,"oHuckle");
-insert into owner_cars(car_id, username) values(8,"oHuckle");
-insert into owner_cars(car_id, username) values(9,"oHuckle");
-insert into owner_cars(car_id, username) values(10,"oHuckle");
-insert into owner_cars(car_id, username) values(11,"oHuckle");
-insert into owner_cars(car_id, username) values(12,"oHuckle");
-
-# Rented out car data
-insert into rented_out(car_id,renter_username,owner_username,start_rental,end_rental) values(1,"rJohnson","oHuckle",NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY));
-insert into rented_out(car_id,renter_username,owner_username,start_rental,end_rental) values(2,"graller10","oHuckle",NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY));
-insert into rented_out(car_id,renter_username,owner_username,start_rental,end_rental) values(3,"billyboy52","oHuckle",NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY));
-
 # Owner data
-insert into owner(firstName, lastName, rating, age, username) values("Officer", "Huckle", 5, 35, "oHuckle");
-insert into owner(firstName, lastName, rating, age, username) values("Petty Officer", "Ryan", 5, 22, "pRyan");
-insert into owner(firstName, lastName, rating, age, username) values("Kathy", "Shrader", 3, 31, "kShrader");
+insert into owner(firstName, lastName, rating, age, owner_username) values("Officer", "Huckle", 5, 35, "oHuckle");
+insert into owner(firstName, lastName, rating, age, owner_username) values("Petty Officer", "Ryan", 5, 22, "pRyan");
+insert into owner(firstName, lastName, rating, age, owner_username) values("Kathy", "Shrader", 3, 31, "kShrader");
 
 # Renter data
-insert into renter(firstName, lastName, rating, age, username) values("Ron", "Johnson", 5, 25, "rJohnson");
-insert into renter(firstName, lastName, rating, age, username) values("Ryan", "Graller", 5, 22, "graller10");
-insert into renter(firstName, lastName, rating, age, username) values("Mr.", "Shredder", 0.5, 40, "billyboy52");
+insert into renter(firstName, lastName, rating, age, renter_username) values("Ron", "Johnson", 5, 25, "rJohnson");
+insert into renter(firstName, lastName, rating, age, renter_username) values("Ryan", "Graller", 5, 22, "graller10");
+insert into renter(firstName, lastName, rating, age, renter_username) values("Mr.", "Shredder", 0.5, 40, "billyboy52");
+
+
+# Car data
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("Golf GTI", "Volkswagon", 2011, 2, 28, 4.5, "Little thing whips","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("CRV", "Honda", 2002, 5, 26, 3, "Great snow control","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("Corolla", "Toyota", 2011, 2, 32, 4.5, "great mpg","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("Civic", "Honda", 2002, 5, 35, 5, "Best I evah had","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("Rav 4", "Toyota", 2016, 5, 28, 4.5, "Quite spacious","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("G6", "Pontiac", 2010, 3, 26, 3, "So fly","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("Accord", "Honda", 2011, 5, 28, 4.5, "Not as good as Civic","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("CRV", "Honda", 2012, 5, 26, 3, "Newer model is better","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("Golf GTI", "Volkswagon", 2012, 5, 28, 4.5, "Little thing whips more","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("Civic", "Honda", 2014, 8, 26, 3, "Stylish","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("CRV", "Honda", 2011, 7, 28, 4.5, "Little thing whips","oHuckle" );
+insert into cars( model, make, year, seats, mileage, rating, description, owner_username) values("CRV", "Honda", 2015, 5, 33, 3, "MPG overhaul","oHuckle");
+
+
 
 # Available car data
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",1, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",2, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",3, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",4, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",5, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",6, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",7, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",8, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",9, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",10, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",11, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",12, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
-
-
+insert into status(car_id, status, start_rental, end_rental, state, city) values(1, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(2, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(3, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(4, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(5, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(6, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(7, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(8, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(9, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(10, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(11, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
+insert into status(car_id, status, start_rental, end_rental, state, city) values(12, "A", NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
