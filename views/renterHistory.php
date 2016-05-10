@@ -25,9 +25,24 @@
               <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['start_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8'); ?></td>
+    <?php if (isset($_SESSION['user_id']) && $_SESSION['type'] == 'renter' && $row['status']== 'R'): ?>                
+              <td>  
+                <form action="return.php" method="post">
+                  <input type="submit" name="car" value="Return This Car!">            
+                  <input type="hidden" name="car_id" value="<?php echo htmlentities($row['car_id'], ENT_QUOTES, 'utf-8');?>">
+                  <input type="hidden" name="status" value="NA">
+                </form>
+              </td>
+    <?php endif; ?> 
             </tr>
 <?php endforeach; ?>
+
           </tbody>
         </table>
       </div>
+      <?php if (isset($_SESSION['message'])): ?>
+                <div class="row">
+                    <p class="text-info text-center"><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>
+                </div>
+      <?php endif; ?>
     </div>
