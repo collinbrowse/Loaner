@@ -34,13 +34,15 @@
               <label class="text-white">MPG</label>
               <input type="number" name="mileage" min=0 class="form-control">
           </div>
-        </div>
-        
-        <div class="col-sm-6">
           <div class="form-group">
               <label class="text-white">Description</label>
               <input type="text" name="description" class="form-control">
           </div>
+        </div>
+        
+        
+        <div class="col-sm-6">
+          
           <div class="form-group">
             <label class="text-white">Date Available</label>
             <input type="text" name="start_rental" placeholder="YYYY-MM-DD" class="form-control">
@@ -56,6 +58,15 @@
           <div class="form-group">
             <label class="text-white">State</label>
             <input type="text" name="state" placeholder="State" class="form-control">
+          </div>
+          <div class="form-group">
+              <label class="text-white">Posting Status</label>
+              <fieldset>
+                  <select name="status" class="form-control">
+                    <option value="A">Available</option>
+                    <option value="NA">Unavailable</option>
+                  </select>
+              </fieldset>
           </div>
           <br>
           <button type="submit" class="btn btn-primary" name="submit" >Submit</button>              
