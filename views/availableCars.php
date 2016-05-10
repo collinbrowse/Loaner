@@ -15,6 +15,7 @@
               <th class="text-white">End Rental</th>
               <th class="text-white">City</th>
               <th class="text-white">State</th>
+              <th class="text-white">Availability</th>
 <?php if (isset($_SESSION['user_id']) &&  $_SESSION['user_id'] == 'renter'): ?> 
               <th></th>
 <?php endif; ?>                            
@@ -23,6 +24,7 @@
 <?php if($query !=  null): ?> 
           <tbody> 
   <?php foreach ($query as $row):?>
+    <?php if (isset($_SESSION['user_id']) && $_SESSION['type'] == 'renter' && $row['status']== 'A'): ?> 
             <tr>
               <td><?php echo htmlentities($row['make'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
@@ -34,8 +36,7 @@
               <td><?php echo htmlentities($row['start_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8'); ?></td>
-              <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>              
-    <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 'renter'): ?>                
+              <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>                  
               <td>  
                 <form action="rent.php" method="post">
                   <input type="submit" name="car" value="Rent This Car!">            
@@ -46,8 +47,8 @@
                   <input type="hidden" name="city" value="<?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8');?>">
                 </form>
               </td>
-    <?php endif; ?>              
-            </tr>            
+            </tr>
+    <?php endif; ?>
   <?php endforeach; ?>
           </tbody>
 <?php else: ?>
