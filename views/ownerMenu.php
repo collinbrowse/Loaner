@@ -9,5 +9,8 @@
         <li <?php if ($_SERVER['REQUEST_URI'] == '/addCar.php') echo 'class="active"'; ?>>
           <a href="../addCar.php">Add a car</a>
         </li>
+        <li <?php if ($_SERVER['REQUEST_URI'] == '/carInventory.php') echo 'class="active"'; ?>>
+          <a href="../carInventory.php">View Your Cars</a>
+        </li>
       </ul>
     </div>
