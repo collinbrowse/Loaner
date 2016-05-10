@@ -162,3 +162,4 @@ insert into available_cars(username, car_id, start_rental, end_rental, state, ci
 insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",11, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
 insert into available_cars(username, car_id, start_rental, end_rental, state, city) values("oHuckle",12, NOW(), DATE_ADD(NOW(),INTERVAL 14 DAY), "NY", "Canton");
 
+
