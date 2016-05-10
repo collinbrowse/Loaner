@@ -7,9 +7,9 @@
       <title>Loaner</title>
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
       <link href="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet" >
-      <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--      <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-      <link rel="stylesheet" href="css/global.css">
+      <link rel="stylesheet" href="css/global.css">-->
       <link rel="stylesheet" href="views/style.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
       <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />  <!-- for the datepicker -->

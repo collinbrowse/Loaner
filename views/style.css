@@ -1,9 +1,25 @@
-.jumbotron {
-    background-image: url('http://cdn.bmwblog.com/wp-content/uploads/2015/04/2014-BMW-i3-Front-3-4-Right-City-Cruising-750x465.jpg');
-    margin: auto;
-    padding: 15px;
-    width: 90%;
-    height: 1000px;
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d0e4f7+0,73b1e7+0,0a65d3+49,539fe1+100,87bcea+100 */
+background: rgb(208,228,247); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(208,228,247,1) 0%, rgba(115,177,231,1) 0%, rgba(10,101,211,1) 49%, rgba(83,159,225,1) 100%, rgba(135,188,234,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(208,228,247,1) 0%,rgba(115,177,231,1) 0%,rgba(10,101,211,1) 49%,rgba(83,159,225,1) 100%,rgba(135,188,234,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(208,228,247,1) 0%,rgba(115,177,231,1) 0%,rgba(10,101,211,1) 49%,rgba(83,159,225,1) 100%,rgba(135,188,234,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=1 ); /* IE6-9 */
+
 }
+
+.text-white {
+  color:white;
+}
+
+.push-to-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.header {
+  position: absolute;
+  bottom: 50%;
+  
+}
+

@@ -5,13 +5,13 @@
         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th>Model</th>
-              <th>Make</th>
-              <th>Rating</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Start Rental</th>
-              <th>End Rental</th>
+              <th class="text-white">Model</th>
+              <th class="text-white">Make</th>
+              <th class="text-white">Rating</th>
+              <th class="text-white">City</th>
+              <th class="text-white">State</th>
+              <th class="text-white">Start Rental</th>
+              <th class="text-white">End Rental</th>
             </tr>
           </thead>
 

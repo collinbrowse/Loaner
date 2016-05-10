@@ -4,17 +4,17 @@
         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th>Model</th>
-              <th>Make</th>
-              <th>Year</th>
-              <th>Capacity</th>
-              <th>Gas Mileage</th>
-              <th>Rating</th>
-              <th>Description</th>
-              <th>Start Rental</th>
-              <th>End Rental</th>
-              <th>City</th>
-              <th>State</th>
+              <th class="text-white">Model</th>
+              <th class="text-white">Make</th>
+              <th class="text-white">Year</th>
+              <th class="text-white">Capacity</th>
+              <th class="text-white">Gas Mileage</th>
+              <th class="text-white">Rating</th>
+              <th class="text-white">Description</th>
+              <th class="text-white">Start Rental</th>
+              <th class="text-white">End Rental</th>
+              <th class="text-white">City</th>
+              <th class="text-white">State</th>
 <?php if (isset($_SESSION['user_id']) &&  $_SESSION['user_id'] == 'renter'): ?> 
               <th></th>
 <?php endif; ?>                            
@@ -51,7 +51,7 @@
   <?php endforeach; ?>
           </tbody>
 <?php else: ?>
-  <h1>
+  <h1 class="alert alert-error text-white">
   <?php echo "There are no cars available according to your search. Please try another search"; ?>
   </h1>
 <?php endif; ?>
