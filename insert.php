@@ -21,6 +21,7 @@ else {
   $mileage = trim($_POST['mileage']);
   $rating = null;
   $description = trim($_POST['description']);
+  $status = trim($_POST['status']);
   $username = trim($_SESSION['user_id']);
   $startRental = trim($_POST['start_rental']);
   $endRental = trim($_POST['end_rental']);
@@ -30,8 +31,8 @@ else {
   // Create a new model to insert a new car
   require_once('models/car.php');
   $add = new Car($cs332db);
-  $add->insert($model, $make, $year, $seats, $mileage, $rating, $description);
-  $result = $add->newCar($username, $startRental, $endRental, $state, $city);
+  $add->insert($model, $make, $year, $seats, $mileage, $rating, $description, $username);
+  $add->newCar($status, $city, $state, $startRental, $endRental);
 }
 // Return home
 if (isset($_SESSION['user_id'])) {
