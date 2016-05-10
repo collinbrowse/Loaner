@@ -26,7 +26,7 @@ class User {
     // Attempt to add this user and return whether it worked
     function registerAdditional($first, $last, $age) {
         if($this->type == 'renter') {
-            $insert = $this->db->prepare('insert into renter(firstName,lastName,rating,age,username) values(:first,:last,0,:age,:username)');
+            $insert = $this->db->prepare('insert into renter(firstName,lastName,rating,age,renter_username) values(:first,:last,0,:age,:username)');
             $insert->bindParam(':first', $first, PDO::PARAM_STR);
             $insert->bindParam(':last', $last, PDO::PARAM_STR);
             $insert->bindParam(':age', $age, PDO::PARAM_INT);
@@ -34,7 +34,7 @@ class User {
             return $insert->execute();
         }
         elseif($this->type == 'owner') {
-            $insert = $this->db->prepare('insert into owner(firstName,lastName,rating,age,username) values(:first,:last,0,:age,:username)');
+            $insert = $this->db->prepare('insert into owner(firstName,lastName,rating,age,owner_username) values(:first,:last,0,:age,:username)');
             $insert->bindParam(':first', $first, PDO::PARAM_STR);
             $insert->bindParam(':last', $last, PDO::PARAM_STR);
             $insert->bindParam(':age', $age, PDO::PARAM_INT);
@@ -60,12 +60,12 @@ class User {
     
     function getProfileInfo($type) {
         if($type=='renter'){
-        $select = $this->db->prepare('select * from renter natural join users where username=:username');
+        $select = $this->db->prepare('select * from renter a join users b on a.renter_username=b.username where renter_username=:username;');
         $select->bindParam(':username', $this->username, PDO::PARAM_STR);
         $select->execute();
         }
         else{
-        $select = $this->db->prepare('select * from owner natural join users where username=:username');
+        $select = $this->db->prepare('select * from owner a join users b on a.owner_username=b.username where owner_username=:username');
         $select->bindParam(':username', $this->username, PDO::PARAM_STR);
         $select->execute();
         }
