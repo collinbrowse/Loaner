@@ -27,7 +27,7 @@
           <tbody>
   <!--For each row in the query that was returned-->
   <?php foreach ($query as $row):?>
-    <?php if (isset($_SESSION['user_id']) && $_SESSION['type'] == 'renter' && $row['status']== 'A'): ?> 
+    <?php if ($row['status']== 'A'): ?> 
             <tr>
               <td><?php echo htmlentities($row['make'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
