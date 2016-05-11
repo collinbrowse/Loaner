@@ -1,14 +1,14 @@
-<?php // Controller for some internal activity
+<?php // Controller for owner submitting cars for rent
 
 session_start();
 
-// Must be logged in
+// Must be logged in for the owner to add a car
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ./');
+    header('Location: ./views/error.php');   // Send back to index
     exit();
 }
 
-// Show whatever this activity is
+// Let the user list a car for renting
 require('views/headerLoggedIn.php');
 require('views/addCar.php');
 require('views/footer.php');

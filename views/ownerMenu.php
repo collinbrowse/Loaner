@@ -1,4 +1,5 @@
-   <div class="col-sm-2">
+<!--Based on what page is currently loaded, highlight that pill-->
+    <div class="col-sm-2">
       <ul class="nav nav-pills nav-stacked">
         <li>
           <a href="../">Home</a>

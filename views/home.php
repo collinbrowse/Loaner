@@ -1,6 +1,4 @@
-<!-- DatePicker ability taken from the tutorial at formden.com
-     link: https://formden.com/blog/date-picker-->
-
+<!--Home page for any user even if they are not logged in-->
 <div class="home-page">
   <h1 class="text-center text-white"> Rent A Car</h1>
   <h4 class="text-center text-white"> Live the Adventure</h3>

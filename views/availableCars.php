@@ -15,13 +15,17 @@
               <th class="text-white">End Rental</th>
               <th class="text-white">City</th>
               <th class="text-white">State</th>
+              
+<!--If a user is logged in and is not currently renting a car display an extra column-->             
 <?php if (isset($_SESSION['user_id']) && $_SESSION['type'] == 'renter' && $isRenting == 0): ?> 
               <th class="text-white">Availability</th>
 <?php endif; ?>                            
             </tr>
           </thead>
+          
 <?php if($query !=  null): ?> 
-          <tbody> 
+          <tbody>
+  <!--For each row in the query that was returned-->
   <?php foreach ($query as $row):?>
     <?php if (isset($_SESSION['user_id']) && $_SESSION['type'] == 'renter' && $row['status']== 'A'): ?> 
             <tr>
@@ -36,6 +40,7 @@
               <td><?php echo htmlentities($row['end_rental'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>
+      <!--If a user is logged in and is not currently renting a car display the button to rent and the form to go with is-->             
       <?php if (isset($_SESSION['user_id']) && $_SESSION['type'] == 'renter' && $isRenting == 0): ?> 
               <td>  
                 <form action="rent.php" method="post">
@@ -52,9 +57,10 @@
     <?php endif; ?>
   <?php endforeach; ?>
           </tbody>
+<!--If the search didn't come back with any results-->         
 <?php else: ?>
   <h1 class="alert alert-error text-white">
   <?php echo "There are no cars available according to your search. Please try another search"; ?>
   </h1>
 <?php endif; ?>
-    </div>
+</div>

@@ -15,7 +15,8 @@
             </tr>
           </thead>
 
-          <tbody> 
+          <tbody>
+<!--For each row in the query that was returned-->
 <?php foreach ($query as $row):?>
             <tr>
               <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
@@ -40,9 +41,9 @@
           </tbody>
         </table>
       </div>
-      <?php if (isset($_SESSION['message'])): ?>
+<?php if (isset($_SESSION['message'])): ?>
                 <div class="row">
                     <p class="text-info text-center"><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>
                 </div>
-      <?php endif; ?>
+<?php endif; ?>
     </div>

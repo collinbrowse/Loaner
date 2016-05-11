@@ -13,7 +13,8 @@
             </tr>
           </thead>
 
-          <tbody> 
+          <tbody>
+<!--For each row in the query that was returned-->            
 <?php foreach ($query as $row):?>
             <tr>
               <td><?php echo htmlentities($row['model'], ENT_QUOTES, 'utf-8'); ?></td>
@@ -21,7 +22,7 @@
               <td><?php echo htmlentities($row['rating'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['city'], ENT_QUOTES, 'utf-8'); ?></td>
               <td><?php echo htmlentities($row['state'], ENT_QUOTES, 'utf-8'); ?></td>
-    <?php if ($row['status']=='NA'): ?>                
+    <?php if ($row['status']=='NA'): ?>   <!--Status: Not available to rent-->            
               <td>  
                 <form action="changeStatus.php" method="post">
                   <input type="submit" name="makeAvailable" value="Make Car Available">            
@@ -30,7 +31,7 @@
                 </form>
               </td>
     <?php endif; ?>
-    <?php if ($row['status']=='A'): ?>                
+    <?php if ($row['status']=='A'): ?>    <!--Status: Available to rent-->            
               <td>  
                 <form action="changeStatus.php" method="post">
                   <input type="submit" name="makeUnavailable" value="Make Car Unavailable">            

@@ -58,16 +58,17 @@ class User {
         }
     }
     
+    // Return the information associated with a user
     function getProfileInfo($type) {
-        if($type=='renter'){
-        $select = $this->db->prepare('select * from renter a join users b on a.renter_username=b.username where renter_username=:username;');
-        $select->bindParam(':username', $this->username, PDO::PARAM_STR);
-        $select->execute();
+        if($type=='renter') {
+          $select = $this->db->prepare('select * from renter a join users b on a.renter_username=b.username where renter_username=:username;');
+          $select->bindParam(':username', $this->username, PDO::PARAM_STR);
+          $select->execute();
         }
-        else{
-        $select = $this->db->prepare('select * from owner a join users b on a.owner_username=b.username where owner_username=:username');
-        $select->bindParam(':username', $this->username, PDO::PARAM_STR);
-        $select->execute();
+        else {
+          $select = $this->db->prepare('select * from owner a join users b on a.owner_username=b.username where owner_username=:username');
+          $select->bindParam(':username', $this->username, PDO::PARAM_STR);
+          $select->execute();
         }
         $row = $select->fetch(PDO::FETCH_ASSOC);
         

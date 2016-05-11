@@ -7,6 +7,6 @@ $_SESSION = array();
 setcookie(session_name(), FALSE);
 session_destroy();
 
-// Return to login page
+// Return to home page
 header('Location: ./');
 exit();

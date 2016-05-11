@@ -20,7 +20,7 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     
     
-<!-- Navigation bar-->
+<!-- Navigation Bar example taken from http://getbootstrap.com/components/#navbar-->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         
@@ -38,5 +38,5 @@
 <?php endif; ?>            
           
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </nav>

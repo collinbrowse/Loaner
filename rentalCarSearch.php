@@ -8,6 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+// If a renter, show renter menu and the search bar
 if($_SESSION['type'] == 'renter') {
     require('views/headerLoggedIn.php');
     require('views/renterMenu.php');

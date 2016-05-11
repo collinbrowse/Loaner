@@ -1,9 +1,10 @@
 <?php require('views/ownerMenu.php'); ?>
   <div class=container-fluid>
     <div class="col-sm-10">
+      <!--Form so that the owner can add a car for listing-->
       <form action="insert.php" method="post">
         <h3 class="text-white">Add a Car</h3>
-        
+        <!--First column-->
         <div class="col-sm-6">
           <div class="form-group">
               <label class="text-white">Make</label>
@@ -40,9 +41,8 @@
           </div>
         </div>
         
-        
+       <!--Second Column-->
         <div class="col-sm-6">
-          
           <div class="form-group">
             <label class="text-white">Date Available</label>
             <input type="text" name="start_rental" placeholder="YYYY-MM-DD" class="form-control">

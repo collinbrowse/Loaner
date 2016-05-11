@@ -8,6 +8,7 @@ class Car {
       $this->cs332db = $cs332db;   
     }
     
+    // Grab all of the cars that are available to rent
     function retrieve($state, $city, $start_rental, $end_rental, $seats) {
       
       // Sanitize the input
@@ -43,8 +44,8 @@ class Car {
     
     // Make the car avaialable to rent
     function newCar( $status,$city, $state, $start_rental, $end_rental ) {
-        // Retrieve the car_id for the car that was just added to the db
-        // Functionality for the future: make a car available that was already available once
+        
+        // Get the max car_id because that will be the one that was just entered in the database
         $gid = $this->cs332db->prepare("SELECT MAX(car_id) as maxID FROM cars;");
         $gid->execute();
         $test = $gid->fetch(PDO::FETCH_ASSOC);
@@ -63,9 +64,7 @@ class Car {
         $addCar->execute();
     }
     
-    
-    
-    
+    // Allow a user to rent a car
     function rent($username, $car_id, $start_rental, $end_rental, $state, $city) {
       $query = $this->cs332db->prepare("SELECT * from rental_history a join cars b on a.car_id=b.car_id join status c on b.car_id=c.car_id where a.renter_username = :username");
       $query->bindParam(':username', $username, PDO::PARAM_STR, 20);
@@ -91,10 +90,9 @@ class Car {
       $insert->bindParam(':car_id', $car_id, PDO::PARAM_INT, 20);
       return $insert->execute();
       
-      
-          
     }
     
+    // Change the status of a car from one of three options: available, rented, or neither
     function changeStatus($car_id,$status ) {
         
       // Change status of car
@@ -105,20 +103,19 @@ class Car {
           
     }
     
+    // Return if the renter is currently renting a car
+    // This is to make sure that a renter can only ever be renting one car at a time
     function isRenting($username) {
         $query = $this->cs332db->prepare("select count(status) from rental_history natural join cars natural join status where renter_username=:username and status='R';");
         $query->bindParam(':username', $username, PDO::PARAM_STR, 20);
-        //$query->execute();
-        //$renting = $query->fetchAll(PDO::FETCH_ASSOC);
-        //
         $query->execute();
         $test = $query->fetch(PDO::FETCH_ASSOC);
         $renting = $test['count(status)'];
-        
         return $renting;
     
     }
     
+    // Get the renter history of the currently logged in user
     function getRentalHistory($username) {
       
       // Return all cars that are associated with a specific username
@@ -130,6 +127,7 @@ class Car {
     
     }
     
+    // Get all the cars an owner has listed
     function getOwnerCars($username){
       $query = $this->cs332db->prepare("select * from status a join cars b on a.car_id=b.car_id join owner c on b.owner_username=c.owner_username where c.owner_username = :username");
       $query->bindParam(':username', $username, PDO::PARAM_STR, 20);

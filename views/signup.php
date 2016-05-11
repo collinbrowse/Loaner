@@ -1,3 +1,4 @@
+<!--Modal that allows a user to enter credentials to sign in-->         
             <div class="row">
                 <div class="col-sm-6">
                     <h3>Signup</h3>

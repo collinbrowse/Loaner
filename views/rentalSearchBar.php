@@ -1,6 +1,7 @@
 
   <div class="container-fluid">
   
+<!--Search bar for users to see what cars are available to rent--> 
     <form method="post" action="../availability.php">
       <div class="col-sm-2">
         <div class="form-group">
