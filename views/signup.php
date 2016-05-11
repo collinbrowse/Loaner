@@ -37,7 +37,7 @@
                 </div>
 <?php if (isset($_SESSION['message'])): ?>
                 <div class="row">
-                    <p class="text-info text-center"><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>
+                    <p class="text-info text-center text-white"><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>
                 </div>
 <?php endif; ?>
             </div>

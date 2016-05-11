@@ -10,7 +10,6 @@ class Car {
     
     function retrieve($state, $city, $start_rental, $end_rental, $seats) {
       
-      
       // Sanitize the input
       $query = $this->cs332db->prepare("SELECT * FROM status NATURAL JOIN cars WHERE state = :state AND city = :city and start_rental = :start_rental and end_rental = :end_rental and seats = :seats;");
       $query->bindParam(':state', $state, PDO::PARAM_STR, 20);
@@ -23,6 +22,7 @@ class Car {
       $cars = $query->fetchAll(PDO::FETCH_ASSOC);
       return $cars;
     }
+    
 
     // Add a new row to the database
     function insert($model, $make, $year, $seats, $mileage, $rating, $description, $username) {
@@ -63,10 +63,8 @@ class Car {
         $addCar->execute();
     }
     
-    function numRented ($username) {
-      
     
-    }
+    
     
     function rent($username, $car_id, $start_rental, $end_rental, $state, $city) {
       $query = $this->cs332db->prepare("SELECT * from rental_history a join cars b on a.car_id=b.car_id join status c on b.car_id=c.car_id where a.renter_username = :username");
@@ -107,10 +105,24 @@ class Car {
           
     }
     
+    function isRenting($username) {
+        $query = $this->cs332db->prepare("select count(status) from rental_history natural join cars natural join status where renter_username=:username and status='R';");
+        $query->bindParam(':username', $username, PDO::PARAM_STR, 20);
+        //$query->execute();
+        //$renting = $query->fetchAll(PDO::FETCH_ASSOC);
+        //
+        $query->execute();
+        $test = $query->fetch(PDO::FETCH_ASSOC);
+        $renting = $test['count(status)'];
+        
+        return $renting;
+    
+    }
+    
     function getRentalHistory($username) {
       
       // Return all cars that are associated with a specific username
-      $query = $this->cs332db->prepare("SELECT * from rental_history a join cars b on a.car_id=b.car_id join status c on b.car_id=c.car_id where a.renter_username = :username");
+      $query = $this->cs332db->prepare("select max(history_id),model,make,rating,state,city,start_rental,end_rental,status,car_id from rental_history natural join cars natural join status where renter_username=:username group by car_id;");
       $query->bindParam(':username', $username, PDO::PARAM_STR, 20);
       $query->execute();
       $history = $query->fetchAll(PDO::FETCH_ASSOC);

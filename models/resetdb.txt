@@ -60,8 +60,6 @@ create table status (
 alter table status add FOREIGN KEY(car_id) references cars(car_id);
 
 
-
-
 create table rental_history (
    history_id INT AUTO_INCREMENT PRIMARY KEY,
    renter_username VARCHAR(20) NOT NULL,  
